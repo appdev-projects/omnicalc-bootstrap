@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New word count</title>
+
+  <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
+  <meta charset="utf-8">
+
+  <!-- Connect Font Awesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.2/css/all.css">
+</head>
+
+<body>
+  <nav>
+    <a href="/">
+      <i class="fas fa-fw fa-calculator"></i>
+
+      Omnicalc
+    </a>
+
+    <a href="/word_count/new.html">
+      <i class="fas fa-fw fa-book"></i>
+
+      Word Count
+    </a>
+
+    <a href="/loan_payment/new.html">
+      <i class="far fa-fw fa-money-bill-alt"></i>
+
+      Loan Payment
+    </a>
+
+    <a href="/time_between/new.html">
+      <i class="far fa-fw fa-clock"></i>
+
+      Time Between
+    </a>
+
+    <a href="/stats/new.html">
+      <i class="far fa-fw fa-chart-bar"></i>
+
+      Descriptive Statistics
+    </a>
+  </nav>
+
+  <h1>
+    New word count calculation
+  </h1>
+
+  <form action="/word_count/results.html">
+    <div>
+      <label for="user_text">
+        Text
+      </label>
+
+      <textarea rows="3" placeholder="Enter your text" id="user_text"></textarea>
+    </div>
+
+    <div>
+      <label for="user_word">
+        Special Word (optional)
+      </label>
+
+      <input type="name" id="user_word" placeholder="Enter a word to count the occurrences of">
+    </div>
+
+    <button>
+      Calculate!
+    </button>
+  </form>
+</body>
+</html>
