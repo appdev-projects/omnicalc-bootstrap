@@ -271,6 +271,26 @@ describe "/loan_payment/new" do
 end
 
 describe "/loan_payment/new" do
+  it "has a form with a total of 3 labels that have 'for' attributes.", :points => 1 do
+    visit "/loan_payment/new"
+
+    expect(page).to have_tag("form") do
+      with_tag("label[for!='']", :count => 3)
+    end
+  end
+end
+
+describe "/loan_payment/new" do
+  it "has a form with a total of 3 inputs that have 'id' attributes.", :points => 1 do
+    visit "/loan_payment/new"
+
+    expect(page).to have_tag("form") do
+      with_tag("input[id!='']", :count => 3)
+    end
+  end
+end
+
+describe "/loan_payment/new" do
   it "has 1 form with a button", :points => 1 do
     visit "/loan_payment/new"
 
@@ -355,6 +375,31 @@ describe "/loan_payment/new" do
   end
 end
 
+
+describe "/loan_payment/new" do
+  it "has a form with a total of 3 labels that have matching inputs.", { :js => true, :points => 3} do
+    visit "/loan_payment/new"
+
+    all_labels = all("label")
+    first_label = all_labels[0]
+    second_label = all_labels[1]
+    third_label = all_labels[2]
+    
+    all_inputs = all("input")
+    first_input = all_inputs.first
+    second_input = all_inputs[1]
+    third_input = all_inputs[2]
+
+    all_input_ids = [ first_input[:id], second_input[:id], third_input[:id] ]
+    
+    expect(all_input_ids).to include(first_label[:for]),
+      "Expected the label's for attribute(#{first_label[:for]}) to match 1 of the ids of the inputs(#{all_input_ids}), but didn't."
+    expect(all_input_ids).to include(second_label[:for]),
+      "Expected the label's for attribute(#{second_label[:for]}) to match 1 of the ids of the inputs(#{all_input_ids}), but didn't."
+    expect(all_input_ids).to include(third_label[:for]),
+      "Expected the label's for attribute(#{third_label[:for]}) to match 1 of the ids of the inputs(#{all_input_ids}), but didn't."
+  end
+end
 # CSS
 
 describe "/loan_payment/new" do
