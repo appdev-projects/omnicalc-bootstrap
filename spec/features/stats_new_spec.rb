@@ -303,6 +303,20 @@ describe "/stats/new" do
   end
 end
 
+describe "/stats/new" do
+  it "has a form with a label that has a matching textarea.", { :js => true, :points => 3} do
+    visit "/stats/new"
+
+    first_label = find("label")
+    
+    all_textareas = all("textarea")
+    
+    all_textarea_ids = all_textareas.map { |textarea| textarea[:id] }
+    
+    expect(all_textarea_ids).to include(first_label[:for]),
+      "Expected the label's for attribute(#{first_label[:for]}) to match 1 of the ids of the textareas(#{all_textarea_ids}), but didn't."
+  end
+end
 # CSS
 
 describe "/stats/new" do
