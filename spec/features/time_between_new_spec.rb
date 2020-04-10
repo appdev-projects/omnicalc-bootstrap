@@ -333,6 +333,26 @@ describe "/time_between/new" do
   end
 end
 
+describe "/time_between/new" do
+  it "has a form with a total of 2 labels that have matching inputs.", { :js => true, :points => 3} do
+    visit "/time_between/new"
+
+    all_labels = all("label")
+    first_label = all_labels[0]
+    second_label = all_labels[1]
+    
+    all_inputs = all("input")
+    first_input = all_inputs.first
+    second_input = all_inputs[1]
+
+    all_input_ids = [ first_input[:id], second_input[:id] ]
+    
+    expect(all_input_ids).to include(first_label[:for]),
+      "Expected the label's for attribute(#{first_label[:for]}) to match 1 of the ids of the inputs(#{all_input_ids}), but didn't."
+    expect(all_input_ids).to include(second_label[:for]),
+      "Expected the label's for attribute(#{second_label[:for]}) to match 1 of the ids of the inputs(#{all_input_ids}), but didn't."
+  end
+end
 # CSS
 
 describe "/time_between/new" do
