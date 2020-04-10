@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>New word count</title>
+  <title>Descriptive statistics results</title>
 
   <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
   <meta charset="utf-8">
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-primary mb-3">
+  <nav class="navbar navbar-dark bg-info mb-3">
     <a class="navbar-brand " href="/">
       <i class="fas fa-fw fa-calculator"></i>
       Omnicalc
@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-lg-3 d-none d-lg-block">
         <nav class="nav flex-column">
-          <a href="/word_count/new" class="nav-link btn btn-primary mb-2">
+          <a href="/word_count/new" class="nav-link btn btn-outline-primary mb-2">
             <i class="fas fa-fw fa-book"></i>
 
             Word Count
@@ -50,7 +50,7 @@
             Time Between
           </a>
 
-          <a href="/stats/new" class="nav-link btn btn-outline-info mb-2">
+          <a href="/stats/new" class="nav-link btn btn-info mb-2">
             <i class="far fa-fw fa-chart-bar"></i>
 
             Descriptive Statistics
@@ -59,32 +59,96 @@
       </div>  <!-- col-md-3 -->
 
       <div class="col-lg-6">
-        <div class="card border-primary">
+        <div class="card border-info">
           <div class="card-header">
-            Featured
+            New descriptive statistics calculation
           </div>
           <div class="card-body">
-            <form action="/word_count/results.html">
-              <div class="form-group">
-                <label for="user_text">
-                  Text
-                </label>
-    
-                <textarea class="form-control" rows="3" placeholder="Enter your text" id="user_text"></textarea>
-              </div>
-    
-              <div class="form-group">
-                <label for="user_word">
-                  Special Word (optional)
-                </label>
-    
-                <input type="name" class="form-control" id="user_word" placeholder="Enter a word to count the occurrences of">
-              </div>
-    
-              <button class="btn btn-outline-primary btn-block">
-                Calculate!
-              </button>
-            </form>
+            <dl>
+              <dt>
+                Numbers
+              </dt>
+              <dd class="numbers">
+                [10.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 9.0]
+              </dd>
+
+              <dt>
+                Sorted Numbers
+              </dt>
+              <dd class="sorted_numbers">
+                [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 9.0, 10.0]
+              </dd>
+
+              <dt>
+                Count
+              </dt>
+              <dd class="count">
+                11
+              </dd>
+
+              <dt>
+                Minimum
+              </dt>
+              <dd class="minimum">
+                1.0
+              </dd>
+
+              <dt>
+                Maximum
+              </dt>
+              <dd class="maximum">
+                10.0
+              </dd>
+
+              <dt>
+                Range
+              </dt>
+              <dd class="range">
+                9.0
+              </dd>
+
+              <dt>
+                Median
+              </dt>
+              <dd class="median">
+                6.0
+              </dd>
+
+              <dt>
+                Sum
+              </dt>
+              <dd class="sum">
+                63.0
+              </dd>
+
+              <dt>
+                Mean
+              </dt>
+              <dd class="mean">
+                5.7272727272727275
+              </dd>
+
+              <dt>
+                Variance
+              </dt>
+              <dd class="variance">
+                8.016528925619836
+              </dd>
+
+              <dt>
+                Standard Deviation
+              </dt>
+              <dd class="standard_deviation">
+                2.831347545890443
+              </dd>
+
+              <dt>
+                Mode
+              </dt>
+              <dd class="mode">
+                8.0
+              </dd>
+            </dl>
           </div>
         </div>
       </div>  <!-- col-lg-6 -->

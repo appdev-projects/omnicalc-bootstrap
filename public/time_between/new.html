@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>New word count</title>
+  <title>New time between</title>
 
   <!-- Expand the number of characters we can use in the document beyond basic ASCII 🎉 -->
   <meta charset="utf-8">
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-primary mb-3">
+  <nav class="navbar navbar-dark bg-warning mb-3">
     <a class="navbar-brand " href="/">
       <i class="fas fa-fw fa-calculator"></i>
       Omnicalc
@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-lg-3 d-none d-lg-block">
         <nav class="nav flex-column">
-          <a href="/word_count/new" class="nav-link btn btn-primary mb-2">
+          <a href="/time_between/results" class="nav-link btn btn-outline-primary mb-2">
             <i class="fas fa-fw fa-book"></i>
 
             Word Count
@@ -44,7 +44,7 @@
             Loan Payment
           </a>
 
-          <a href="/time_between/new" class="nav-link btn btn-outline-warning mb-2">
+          <a href="/time_between/new" class="nav-link btn btn-warning mb-2">
             <i class="far fa-fw fa-clock"></i>
 
             Time Between
@@ -59,29 +59,44 @@
       </div>  <!-- col-md-3 -->
 
       <div class="col-lg-6">
-        <div class="card border-primary">
+        <div class="card border-warning">
           <div class="card-header">
-            Featured
+            New time between calculation
           </div>
           <div class="card-body">
-            <form action="/word_count/results.html">
+            <form action="/time_between/results.html">
+    
               <div class="form-group">
-                <label for="user_text">
-                  Text
+                <label for="user_word">
+                  Starting Time
                 </label>
     
-                <textarea class="form-control" rows="3" placeholder="Enter your text" id="user_text"></textarea>
+                <div class="input-group mb-3">
+                  <input type="datetime-local" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-append2">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
+                </div>
               </div>
     
               <div class="form-group">
                 <label for="user_word">
-                  Special Word (optional)
+                  Ending Time
                 </label>
     
-                <input type="name" class="form-control" id="user_word" placeholder="Enter a word to count the occurrences of">
+                <div class="input-group mb-3">
+                  <input type="datetime-local" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-append2">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
+                </div>
               </div>
     
-              <button class="btn btn-outline-primary btn-block">
+              <button class="btn btn-outline-warning btn-block">
                 Calculate!
               </button>
             </form>
