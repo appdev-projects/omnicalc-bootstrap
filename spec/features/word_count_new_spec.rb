@@ -324,6 +324,25 @@ describe "/word_count/new" do
   end
 end
 
+describe "/word_count/new" do
+  it "has a form with a total of 2 labels that have a matching input and textarea.", { :js => true, :points => 3} do
+    visit "/word_count/new"
+
+    all_labels = all("label")
+    first_label = all_labels[0]
+    second_label = all_labels[1]
+    
+    first_input = find("input")
+    first_textarea = find("textarea")
+
+    all_input_ids = [ first_input[:id], first_textarea[:id] ]
+    
+    expect(all_input_ids).to include(first_label[:for]),
+      "Expected the label's for attribute(#{first_label[:for]}) to match 1 of the ids of the inputs(#{all_input_ids}), but didn't."
+    expect(all_input_ids).to include(second_label[:for]),
+      "Expected the label's for attribute(#{second_label[:for]}) to match 1 of the ids of the inputs(#{all_input_ids}), but didn't."
+  end
+end
 # CSS
 
 describe "/word_count/new" do
