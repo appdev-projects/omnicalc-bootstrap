@@ -1,20 +1,20 @@
 require "rails_helper"
 
-describe "/loan_payment/new" do
-  it "has the title 'New loan payment'.", :points => 1 do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has the title 'New descriptive statistics'.", :points => 1 do
+    visit "/stats/new"
     # TODO ignore case custom error
     expect(page).to have_tag("html") do
       with_tag("head") do
-        with_tag("title", :text => /New loan payment/i)
+        with_tag("title", :text => /New descriptive statistics/i)
       end
     end
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "links to fontawesome in the head tag", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     # TODO ignore case custom error
     expect(page).to have_tag("html") do
       with_tag("head") do
@@ -28,57 +28,57 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at least one link", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("a", { :minimum => 1 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at least two links", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("a", { :minimum => 2 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at least three links", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("a", { :minimum => 3 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at least four links", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("a", { :minimum => 4 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at most five links", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("a", { :count => 5 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to '/' with the text 'Omnicalc'", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Omnicalc/i, :with => { :href => "/" } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to '/word_count/new' with the text 'Word Count'", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("a", :text => /Word Count/i,
       :with => { :href => "/word_count/new" }
@@ -86,9 +86,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a link to '/loan_payment/new' with the text 'Loan Payment'", :points => 1 do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a link to '/stats/new' with the text 'Loan Payment'", :points => 1 do
+    visit "/stats/new"
     
     expect(page).to have_tag("a", :text => /Loan Payment/i,
       :with => { :href => "/loan_payment/new" }
@@ -96,9 +96,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to '/time_between/new' with the text 'Time Between'", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("a", :text => /Time Between/i,
       :with => { :href => "/time_between/new" }
@@ -106,9 +106,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to '/stats/new' with the text 'Descriptive Statistics'", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i,
       :with => { :href => "/stats/new" }
@@ -116,9 +116,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has all navigation links in a nav tag", :points => 3 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("html") do
       with_tag("body") do
@@ -136,49 +136,49 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at least one icon", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("i", { :minimum => 1 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at least two icons", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("i", { :minimum => 2 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at least three icons", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("i", { :minimum => 3 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at least four icons", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("i", { :minimum => 4 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has at most five icons", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
     
     expect(page).to have_tag("i", { :count => 5 } )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has all navigation links and icons in the correct order in a nav tag", :points => 3 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("html") do
       with_tag("body") do
@@ -206,33 +206,33 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
-  it "has text 'New loan payment calculation'.", :points => 1 do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has text 'New descriptive statistics calculation'.", :points => 1 do
+    visit "/stats/new"
 
-    expect(page).to have_content(/New loan payment calculation/i)
+    expect(page).to have_content(/New descriptive statistics calculation/i)
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has 1 form tag", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("form", :count => 1 )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has 1 button tag", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("button", :count => 1 )
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has 1 form with at least 1 label", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("form") do
       with_tag("label", :minimum => 1)
@@ -240,39 +240,19 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a form with at least 1 input.", :points => 1 do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a form with at least 1 textarea.", :points => 1 do
+    visit "/stats/new"
 
     expect(page).to have_tag("form") do
-      with_tag("input", :minimum => 1)
+      with_tag("textarea", :minimum => 1)
     end
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a form with a total of 3 inputs.", :points => 1 do
-    visit "/loan_payment/new"
-
-    expect(page).to have_tag("form") do
-      with_tag("input", :count => 3)
-    end
-  end
-end
-
-describe "/loan_payment/new" do
-  it "has a form with a total of 3 inputs that are type number.", :points => 1 do
-    visit "/loan_payment/new"
-
-    expect(page).to have_tag("form") do
-      with_tag("input", :count => 3, :with => { :type => "number" })
-    end
-  end
-end
-
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has 1 form with a button", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("form") do
       with_tag("button", :count => 1)
@@ -280,9 +260,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has 1 form with a button with the text, 'Calculate!'", :points => 1 do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("form") do
       with_tag("button", :count => 1, :text => /Calculate/i)
@@ -290,76 +270,44 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a form with a label with text 'APR'", :points => 1 do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a form with a label with text 'Numbers'", :points => 1 do
+    visit "/stats/new"
 
     expect(page).to have_tag("form") do
-      with_tag("label", :minimum => 1, :text => /APR/i)
+      with_tag("label", :minimum => 1, :text => /Numbers/i)
     end
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a form with a label with text 'Years'", :points => 1 do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a form with a label with text 'Numbers' and an textarea with placeholder 'Enter your numbers (separated by spaces)'.", :points => 1 do
+    visit "/stats/new"
 
     expect(page).to have_tag("form") do
-      with_tag("label", :text => /Years/i)
+      with_tag("label", :count => 1, :text => /Numbers/i)
+      with_tag("textarea", :with => { :placeholder => "Enter your numbers (separated by spaces)" })
     end
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a form with a label with text 'Principal'", :points => 1 do
-    visit "/loan_payment/new"
-
-    expect(page).to have_tag("form") do
-      with_tag("label", :text => /Principal/i)
-    end
-  end
-end
-
-describe "/loan_payment/new" do
-  it "has a form with the 'APR', 'Years', and 'Principal' labels inside.", :points => 1 do
-    visit "/loan_payment/new"
-
-    expect(page).to have_tag("form") do
-      with_tag("label", :count => 1, :text => /APR/i)
-      with_tag("label", :count => 1, :text => /Years/i)
-      with_tag("label", :count => 1, :text => /Principal/i)
-    end
-  end
-end
-
-describe "/loan_payment/new" do
-  it "has a form with a label with text 'APR' and an input with placeholder 'Enter the APR of the loan (as a percent)'.", :points => 1 do
-    visit "/loan_payment/new"
-
-    expect(page).to have_tag("form") do
-      with_tag("label", :count => 1, :text => /APR/i)
-      with_tag("input", :with => { :placeholder => "Enter the APR of the loan (as a percent)" })
-    end
-  end
-end
-
-describe "/loan_payment/new" do
-  it "has 1 form tag that submits to '/loan_payment/results' when you click on the 'Calculate!' button.", :points => 1 do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has 1 form tag that submits to '/stats/results' when you click on the 'Calculate!' button.", :points => 1 do
+    visit "/stats/new"
 
     within "form" do
       find("button", :text => /Calculate/i).click
     end
 
-    expect(page.current_path).to match("/loan_payment/results")
+    expect(page.current_path).to match("/stats/results")
   end
 end
 
 # CSS
 
-describe "/loan_payment/new" do
-  it "has a navbar with the text 'Omnicalc' that has a Bootstrap green background color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a navbar with the text 'Omnicalc' that has a Bootstrap blue info background color.",  {:js => true, :points => 1} do
+    visit "/stats/new"
 
     expect(page).to have_tag("nav", :text => /Omnicalc/i)
 
@@ -372,18 +320,18 @@ describe "/loan_payment/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq(40),
-      "Expected the amount of Red(#{red_value}) in the color to equal 40, but didn't."
-    expect(green_value).to eq(167),
-      "Expected the amount of Green(#{green_value}) in the color to equal 167, but didn't."
-    expect(blue_value).to eq(69),
-      "Expected the amount of Blue(#{blue_value}) in the color to equal 69, but didn't."
+    expect(red_value).to eq(23),
+      "Expected the amount of Red(#{red_value}) in the background-color to equal 23, but didn't."
+    expect(green_value).to eq(162),
+      "Expected the amount of Green(#{green_value}) in the background-color to equal 162, but didn't."
+    expect(blue_value).to eq(184),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but didn't."
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link with text 'Word Count' that has a blue border color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -401,9 +349,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link with text 'Word Count' that has a white background color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -431,9 +379,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a link to Loan Payment that has a darker green background color when a mouse hovers over it.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a link to Loan Payment that has a green background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i),
       "Expected to find an 'a' tag on the page with text that matches the pattern 'Loan Payment' but didn't find one."
@@ -447,19 +395,82 @@ describe "/loan_payment/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    # rgb(33, 136, 56);
-    expect(red_value).to eq(33),
-      "Expected the amount of Red(#{red_value}) in the background-color to equal 33, but didn't."
-    expect(green_value).to eq(136),
-      "Expected the amount of Green(#{green_value}) in the background-color to equal 136, but didn't."
-    expect(blue_value).to eq(56),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 56, but didn't."
+    expect(red_value).to eq(40),
+      "Expected the amount of Red(#{red_value}) in the color to equal 40, but didn't."
+    expect(green_value).to eq(167),
+      "Expected the amount of Green(#{green_value}) in the color to equal 167, but didn't."
+    expect(blue_value).to eq(69),
+      "Expected the amount of Blue(#{blue_value}) in the color to equal 69, but didn't."
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
+  it "has a link to Word Count that has a blue border color.",  {:js => true, :points => 1} do
+    visit "/stats/new"
+
+    expect(page).to have_tag("a", :text => /Word Count/i)
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    
+    p rgba_color_value = word_count_link.native.style("border-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to be < blue_value
+    expect(green_value).to be < blue_value
+  end
+end
+
+describe "/stats/new" do
+  it "has a link to Word Count that has a white background color.",  {:js => true, :points => 1} do
+    visit "/stats/new"
+
+    expect(page).to have_tag("a", :text => /Word Count/i)
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    
+    p rgba_color_value = word_count_link.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq 0
+    expect(green_value).to eq 0
+    expect(blue_value).to eq 0
+  end
+end
+
+describe "/stats/new" do
+  it "has a link to Word Count that has a blue background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/stats/new"
+
+    expect(page).to have_tag("a", :text => /Word Count/i),
+      "Expected to find an 'a' tag on the page with text that matches the pattern 'Word Count' but didn't find one."
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    
+    p rgba_color_value = word_count_link.hover.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to be < blue_value,
+      "Expected the amount of Red(#{red_value}) in the background color to be less than the amount of Blue(#{blue_value}), but wasn't."
+    expect(green_value).to be < blue_value,
+      "Expected the amount of Green#{green_value} in the background color to be less than the amount of Blue(#{blue_value}), but wasn't."
+  end
+end
+
+describe "/stats/new" do
   it "has a link to Word Count that has a blue text color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -481,9 +492,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Word Count that is on it's own line.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -494,9 +505,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Word Count that doesn't have any text decoration.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -508,9 +519,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Loan Payment that has a green border color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -534,9 +545,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a link to Loan Payment that has a green background color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a link to Loan Payment that has a white background color.",  {:js => true, :points => 1} do
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -549,19 +560,25 @@ describe "/loan_payment/new" do
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
-    
-    expect(red_value).to eq(40),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 40, but wasn't."
-    expect(green_value).to eq(167),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 167, but wasn't."
-    expect(blue_value).to eq(69),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 69, but wasn't."
+    alpha_value = color_number_values.last.to_i
+
+    if color_number_values.count > 3 && alpha_value.zero?
+      # Background color is transparent
+      expect(alpha_value).to eq(0)
+    else
+      expect(red_value).to eq(255),
+        "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
+      expect(green_value).to eq(255),
+        "Expected the amount of Green(#{green_value}) in the background-color to be equal 255, but wasn't."
+      expect(blue_value).to eq(255),
+        "Expected the amount of Blue(#{blue_value}) in the background-color to equal 255, but wasn't."
+    end
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Loan Payment that has a green background color when a mouse hovers over it.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i),
       "Expected to find an 'a' tag on the page with text that matches the pattern 'Loan Payment' but didn't find one."
@@ -583,9 +600,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a link to Loan Payment that has a white text color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a link to Loan Payment that has a green text color.",  {:js => true, :points => 1} do
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -602,19 +619,19 @@ describe "/loan_payment/new" do
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
-
-    expect(red_value).to eq(255),
-      "Expected the amount of Red(#{red_value}) in the color to be equal 255, but wasn't."
-    expect(green_value).to eq(255),
-      "Expected the amount of Green(#{green_value}) in the color to be equal 255, but wasn't."
-    expect(blue_value).to eq(255),
-      "Expected the amount of Blue(#{blue_value}) in the color to equal 255, but wasn't."
+    
+    expect(red_value).to eq(40),
+      "Expected the amount of Red(#{red_value}) in the color to equal 40, but didn't."
+    expect(green_value).to eq(167),
+      "Expected the amount of Green(#{green_value}) in the color to equal 167, but didn't."
+    expect(blue_value).to eq(69),
+      "Expected the amount of Blue(#{blue_value}) in the color to equal 69, but didn't."
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Loan Payment that is on it's own line.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -625,9 +642,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Loan Payment that doesn't have any text decoration.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -639,9 +656,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Time Between that has a Bootstrap warning(yellow) border color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -665,9 +682,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Time Between that has a white background color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -686,9 +703,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Time Between that has a Bootstrap warning(yellow) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i),
       "Expected to find an 'a' tag on the page with text that matches the pattern 'Time Between' but didn't find one."
@@ -711,9 +728,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Time Between that has a Bootstrap warning(yellow) text color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -735,9 +752,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Time Between that is on it's own line.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -748,9 +765,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Time Between that doesn't have any text decoration.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -762,9 +779,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Descriptive Statistics that has a Bootstrap info(blue) border color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
@@ -788,9 +805,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a link to Descriptive Statistics that has a white background color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a link to Descriptive Statistics that has a Bootstrap info blue background color.",  {:js => true, :points => 1} do
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
@@ -803,15 +820,18 @@ describe "/loan_payment/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq 0
-    expect(green_value).to eq 0
-    expect(blue_value).to eq 0
+    expect(red_value).to eq(23),
+      "Expected the amount of Red(#{red_value}) in the background-color to equal 23, but didn't."
+    expect(green_value).to eq(162),
+      "Expected the amount of Green(#{green_value}) in the background-color to equal 162, but didn't."
+    expect(blue_value).to eq(184),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but didn't."
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a link to Descriptive Statistics that has a Bootstrap info(blue) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a link to Descriptive Statistics that has a darker Bootstrap info(blue) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i),
       "Expected to find an 'a' tag on the page with text that matches the pattern 'Descriptive Statistics' but didn't find one."
@@ -825,18 +845,18 @@ describe "/loan_payment/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq(23),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 23, but wasn't."
-    expect(green_value).to eq(162),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 162, but wasn't."
-    expect(blue_value).to eq(184),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but wasn't."
+    expect(red_value).to eq(19),
+      "Expected the amount of Red(#{red_value}) in the background-color to equal 19, but didn't."
+    expect(green_value).to eq(132),
+      "Expected the amount of Green(#{green_value}) in the background-color to equal 132, but didn't."
+    expect(blue_value).to eq(150),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 150, but didn't."
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a link to Descriptive Statistics that has a Bootstrap info(blue) text color.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a link to Descriptive Statistics that has a white text color.",  {:js => true, :points => 1} do
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
@@ -849,18 +869,18 @@ describe "/loan_payment/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq(23),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 23, but wasn't."
-    expect(green_value).to eq(162),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 162, but wasn't."
-    expect(blue_value).to eq(184),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but wasn't."
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
+    expect(green_value).to eq(255),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 255, but wasn't."
+    expect(blue_value).to eq(255),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 255, but wasn't."
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Descriptive Statistics that is on it's own line.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
@@ -871,9 +891,9 @@ describe "/loan_payment/new" do
   end
 end
 
-describe "/loan_payment/new" do
+describe "/stats/new" do
   it "has a link to Descriptive Statistics that doesn't have any text decoration.",  {:js => true, :points => 1} do
-    visit "/loan_payment/new"
+    visit "/stats/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
     # TODO remore these extra preface tests, they already exist elsewhere
@@ -887,9 +907,9 @@ end
 
 # specifics page styles
 
-describe "/loan_payment/new" do
-  it "has a button with the text 'Calculate!', that has a green color.", { :js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a button with the text 'Calculate!', that has a Bootstrap info blue color.", { :js => true, :points => 1} do
+    visit "/stats/new"
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
@@ -900,18 +920,18 @@ describe "/loan_payment/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
     
-    expect(red_value).to eq(40),
-      "Expected the amount of Red(#{red_value}) in the color to be equal 40, but wasn't."
-    expect(green_value).to eq(167),
-      "Expected the amount of Green(#{green_value}) in the color to be equal 167, but wasn't."
-    expect(blue_value).to eq(69),
-      "Expected the amount of Blue(#{blue_value}) in the color to equal 69, but wasn't."
+    expect(red_value).to eq(23),
+      "Expected the amount of Red(#{red_value}) in the background-color to equal 23, but didn't."
+    expect(green_value).to eq(162),
+      "Expected the amount of Green(#{green_value}) in the background-color to equal 162, but didn't."
+    expect(blue_value).to eq(184),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but didn't."
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a button with the text 'Calculate!', that has a green border color.", { :js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a button with the text 'Calculate!', that has a Bootstrap info blue border color.", { :js => true, :points => 1} do
+    visit "/stats/new"
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
@@ -922,18 +942,18 @@ describe "/loan_payment/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq(40),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 40, but wasn't."
-    expect(green_value).to eq(167),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 167, but wasn't."
-    expect(blue_value).to eq(69),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 69, but wasn't."
+    expect(red_value).to eq(23),
+      "Expected the amount of Red(#{red_value}) in the background-color to equal 23, but didn't."
+    expect(green_value).to eq(162),
+      "Expected the amount of Green(#{green_value}) in the background-color to equal 162, but didn't."
+    expect(blue_value).to eq(184),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but didn't."
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a button with the text 'Calculate!', that has a green background color when hovered.", { :js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a button with the text 'Calculate!', that has a Bootstrap info blue background color when hovered.", { :js => true, :points => 1} do
+    visit "/stats/new"
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
@@ -944,18 +964,18 @@ describe "/loan_payment/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq(40),
-      "Expected the amount of Red(#{red_value}) in the backgroun-color to equal 40, but didn't."
-    expect(green_value).to eq(167),
-      "Expected the amount of Green(#{green_value}) in the backgroun-color to equal 167, but didn't."
-    expect(blue_value).to eq(69),
-      "Expected the amount of Blue(#{blue_value}) in the backgroun-color to equal 69, but didn't."
+    expect(red_value).to eq(23),
+      "Expected the amount of Red(#{red_value}) in the background-color to equal 23, but didn't."
+    expect(green_value).to eq(162),
+      "Expected the amount of Green(#{green_value}) in the background-color to equal 162, but didn't."
+    expect(blue_value).to eq(184),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but didn't."
   end
 end
 
-describe "/loan_payment/new" do
-  it "has a button with the text 'Calculate!', that is a white color when hovered.", { :js => true, :points => 1} do
-    visit "/loan_payment/new"
+describe "/stats/new" do
+  it "has a button with the text 'Calculate!', that is a white text color when hovered.", { :js => true, :points => 1} do
+    visit "/stats/new"
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
