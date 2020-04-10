@@ -117,6 +117,14 @@ describe "The home page" do
 end
 
 describe "The home page" do
+  it "has a navbar with the text 'Omnicalc' in a nav tag", :points => 1 do
+    visit "/"
+
+    expect(page).to have_tag("nav", :text => /Omnicalc/i)
+  end
+end
+
+describe "The home page" do
   it "has all navigation links in a nav tag", :points => 3 do
     visit "/"
 
@@ -176,27 +184,29 @@ describe "The home page" do
   it "has all navigation links and icons in the correct order in a nav tag", :points => 3 do
     visit "/"
 
-    expect(page).to have_tag("nav") {
-      with_tag("a:nth-child(1)", :with => { :href => "/" }, :text => /Omnicalc/i) do
-        with_tag("i", :with => { :class => "fas fa-fw fa-calculator" })
+    expect(page).to have_tag("html") do
+      with_tag("body") do
+        with_tag("nav") do
+          with_tag("a:nth-child(1)", :with => { :href => "/word_count/new" }, :text => /Word Count/i) do
+            with_tag("i", :with => { :class => "fas fa-fw fa-book" })
+          end
+          
+          with_tag("a:nth-child(2)", :with => { :href => "/loan_payment/new" }, :text => /Loan Payment/i) do
+            with_tag("i", :with => { :class => "far fa-fw fa-money-bill-alt" })
+          end
+          
+          with_tag("a:nth-child(3)", :with => { :href => "/time_between/new" }, :text => /Time Between/i) do
+            with_tag("i", :with => { :class => "far fa-fw fa-clock" })
+          end
+          
+          with_tag("a:nth-child(4)", :with => { :href => "/stats/new" }, :text => /Descriptive Statistics/i) do
+            with_tag("i", :with => { :class => "far fa-fw fa-chart-bar" })
+          end
+          
+        end
       end
 
-      with_tag("a:nth-child(2)", :with => { :href => "/word_count/new" }, :text => /Word Count/i) do
-        with_tag("i", :with => { :class => "fas fa-fw fa-book" })
-      end
-      
-      with_tag("a:nth-child(3)", :with => { :href => "/loan_payment/new" }, :text => /Loan Payment/i) do
-        with_tag("i", :with => { :class => "far fa-fw fa-money-bill-alt" })
-      end
-      
-      with_tag("a:nth-child(4)", :with => { :href => "/time_between/new" }, :text => /Time Between/i) do
-        with_tag("i", :with => { :class => "far fa-fw fa-clock" })
-      end
-      
-      with_tag("a:nth-child(5)", :with => { :href => "/stats/new" }, :text => /Descriptive Statistics/i) do
-        with_tag("i", :with => { :class => "far fa-fw fa-chart-bar" })
-      end
-    }
+    end
   end
 end
 
@@ -211,682 +221,557 @@ end
 describe "The home page" do
   it "has a paragraph with the text 'Please select a calculator to begin.'", :points => 1 do
     visit "/"
-
+    
     expect(page).to have_tag("p", :text => /Please select a calculator to begin/i)
+  end
+  
+end
+
+describe "The home page" do
+  it "has the level 1 heading with text 'Welcome!' and paragraph with the text 'Please select a calculator to begin inside a div.'", :points => 1 do
+    visit "/"
+    # rgb(233, 236, 239);
+    expect(page).to have_tag("html") do
+      with_tag("body") do
+        with_tag("div") do
+          with_tag("h1", :text => /Welcome/i)
+          with_tag("p", :text => /Please select a calculator to begin/i)
+        end
+      end
+    end
   end
 end
 
-# describe "The home page" do
-#   it "has a link with the text 'Wikipedia'", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_link("Wikipedia")
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a link with the text 'Wikipedia'", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("a", :seen => "Wikipedia" )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a link to wikipedia with the text 'Wikipedia'", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_link("Wikipedia", :href => /wikipedia.org/)
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a paragraph with the text 'From Wikipedia:' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("p", :seen => "From Wikipedia:" )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has 'Wikipedia' is as a link to wikipedia.org that opens in a new tab", :points => 3 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :seen => "From Wikipedia:" ) { 
-#       have_link("Wikipedia", :href => /wikipedia.org/) 
-#       with_tag("a", :with => { :target => "_blank"}, :seen => "Wikipedia")
-#     }
-#   end
-# end
-
-# describe "The home page" do
-#   it "has at least 1 paragraph tag", :points => 1 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :minimum => 1 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has at least 2 paragraph tags", :points => 1 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :minimum => 2 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has at least 3 paragraph tags", :points => 1 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :minimum => 3 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has at least 4 paragraph tags", :points => 1 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :minimum => 4 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has at least 5 paragraph tags", :points => 1 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :minimum => 5 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has at least 6 paragraph tags", :points => 1 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :minimum => 6 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has at least 7 paragraph tags", :points => 1 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :minimum => 7 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has at most 8 paragraph tags", :points => 1 do
-#     visit "/"
-    
-#     expect(page).to have_tag("p", :count => 8 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a paragraph with 'Rock-paper-scissors...' text", :points => 1 do
-#     visit "/"
-    
-#     text = "Rock-paper-scissors (also known as paper, scissors, stone or other" +
-#     " variants) is a hand game usually played between two people, in which" +
-#     " each player simultaneously forms one of three shapes with an outstretched hand."
-
-#     expect(page).to have_tag("p", :seen => text, :count => 1 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a paragraph with 'These shapes are:' text", :points => 1 do
-#     visit "/"
-    
-#     text = "These shapes are:"
-
-#     expect(page).to have_tag("p", :seen => text, :count => 1 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a unordered list", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("ul", :count => 1 )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a unordered list with 3 list items", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("ul", :count => 1 ) do
-#       with_tag("li", :count => 3)
-#       with_tag("li", :seen => "\"rock\" (a closed fist)")
-#       with_tag("li", :seen => "\"paper\" (a flat hand)")
-#       with_tag("li", :seen => "\"scissors\" (a fist with the index and middle fingers extended, forming a V)")
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a paragraph with text: 'A player who decides...' ", :points => 1 do
-#     visit "/"
-
-#     text = /A player who decides to play rock will beat another player who has chosen scissors ("rock crushes scissors" or sometimes "blunts scissors"), but will lose to one who has played paper ("paper covers rock"); a play of paper will lose to a play of scissors ("scissors cut[s] paper"). If both players choose the same shape, the game is tied and is usually immediately replayed to break the tie./
-    
-#     expect(page).to have_tag("p", :seen => text)
-#   end
-# end
-
-# describe "The home page" do
-#   it "has one table element ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :count => 1)
-#   end
-# end
-
-# describe "The home page" do
-#   it "has one table element with a border of 1", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } )
-#   end
-# end
-
-# describe "The home page" do
-#   it "has one table element with 5 rows", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr", :count => 5 )
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a table column in the 1st row that spans 2 rows and 2 columns", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:first-child") do
-#         with_tag("td", :with => { :rowspan => 2, :colspan => 2 } )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a table column in the 1st row that spans 3 columns with text 'and they play...' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:first-child") do
-#         with_tag("td", :with => { :colspan => 3 }, :seen => "and they play..." )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 1st table column in the 2nd row with text 'Rock' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(2)") do
-#         with_tag("td:first-child", :seen => "Rock" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 2nd table column in the 2nd row with text 'Paper' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(2)") do
-#         with_tag("td:nth-child(2)", :seen => "Paper" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 3rd table column in the 2nd row with text 'Scissorsr' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(2)") do
-#         with_tag("td:nth-child(3)", :seen => "Scissors" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 1st table column in the 3rd row span 3 rows & have text 'If we play...' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(3)") do
-#         with_tag("td:first-child", :with => { :rowspan => 3 }, :seen => "If we play..." )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 2nd table column in the 3rd have text 'Rock' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(3)") do
-#         with_tag("td:nth-child(2)", :seen => "Rock" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 3rd table column in the 3rd row have text 'We tie' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(3)") do
-#         with_tag("td:nth-child(3)", :seen => "We tie" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 4th table column in the 3rd row have text 'We lose' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(3)") do
-#         with_tag("td:nth-child(4)", :seen => "We lose" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 5th table column in the 3rd row have text 'We win' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(3)") do
-#         with_tag("td:nth-child(5)", :seen => "We win" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 1st table column in the 4th row have text 'Paper' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(4)") do
-#         with_tag("td:first-child", :seen => "Paper" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 2nd table column in the 4th row have text 'We win' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(4)") do
-#         with_tag("td:nth-child(2)", :seen => "We win" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 3rd table column in the 4th row have text 'We tie' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(4)") do
-#         with_tag("td:nth-child(3)", :seen => "We tie" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 4th table column in the 4th row have text 'We lose' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(4)") do
-#         with_tag("td:nth-child(4)", :seen => "We lose" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 1st table column in the 5th row have text 'Scissors' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(5)") do
-#         with_tag("td:first-child", :seen => "Scissors" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 2nd table column in the 5th row have text 'We lose' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(5)") do
-#         with_tag("td:nth-child(2)", :seen => "We lose" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 3rd table column in the 5th row have text 'We win' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(5)") do
-#         with_tag("td:nth-child(3)", :seen => "We win" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has the 4th table column in the 5th row have text 'We tie' ", :points => 1 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-#       with_tag("tr:nth-child(5)") do
-#         with_tag("td:nth-child(4)", :seen => "We tie" )
-#       end
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a whole dang table! ", :points => 10 do
-#     visit "/"
-
-#     expect(page).to have_tag("table", :with => { :border => 1 } ) do
-      
-#       with_tag("tr:first-child") do
-#         with_tag("td:first-child", :with => { :rowspan => 2, :colspan => 2 } )
-#         with_tag("td:nth-child(2)", :with => { :colspan => 3 }, :seen => "and they play..." )
-#       end
-
-#       with_tag("tr:nth-child(2)") do
-#         with_tag("td:first-child", :seen => "Rock" )
-#         with_tag("td:nth-child(2)", :seen => "Paper" )
-#         with_tag("td:nth-child(3)", :seen => "Scissors" )
-#       end
-
-#       with_tag("tr:nth-child(3)") do
-#         with_tag("td:first-child", :with => { :rowspan => 3 }, :seen => "If we play..." )
-#         with_tag("td:nth-child(2)", :seen => "Rock" )
-#         with_tag("td:nth-child(3)", :seen => "We tie" )
-#         with_tag("td:nth-child(4)", :seen => "We lose" )
-#         with_tag("td:nth-child(5)", :seen => "We win" )
-#       end
-      
-#       with_tag("tr:nth-child(4)") do
-#         with_tag("td:first-child", :seen => "Paper" )
-#         with_tag("td:nth-child(2)", :seen => "We win" )
-#         with_tag("td:nth-child(3)", :seen => "We tie" )
-#         with_tag("td:nth-child(4)", :seen => "We lose" )
-#       end
-      
-#       with_tag("tr:nth-child(5)") do
-#         with_tag("td:first-child", :seen => "Scissors" )
-#         with_tag("td:nth-child(2)", :seen => "We lose" )
-#         with_tag("td:nth-child(3)", :seen => "We win" )
-#         with_tag("td:nth-child(4)", :seen => "We tie" )
-#       end
-#     end
-#   end
-# end
-
-
-# describe "The home page" do
-#   it "has a paragraph with text: 'Originating from China and Japan...' ", :points => 1 do
-#     visit "/"
-
-#     text = /Originating from China and Japan, other names for the game in the English-speaking world include roshambo and other orderings of the three items, with "rock" sometimes being called "stone"./
-    
-#     expect(page).to have_tag("p", :seen => text)
-#   end
-# end
-
-# describe "The home page" do
-#   it "has an image with rock paper scissors svg from the target", :points => 1 do
-#     visit "/"
-    
-#     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/627px-Rock-paper-scissors.svg.png"
-    
-#     expect(page).to have_tag("img", :with => { :src => image})
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a paragraph with text: 'A chart showing how...' ", :points => 1 do
-#     visit "/"
-    
-#     text = /A chart showing how the three game elements interact/
-    
-#     expect(page).to have_tag("p", :seen => text)
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a div with the rock paper scissors image and paragraph with text: 'A chart showing how...' inside", :points => 5 do
-#     visit "/"
-    
-#     text = /A chart showing how the three game elements interact/
-#     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/627px-Rock-paper-scissors.svg.png"
-    
-#     expect(page).to have_tag("div") do
-#       with_tag("img", :with => { :src => image } )
-#       with_tag("p", :seen => text )
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has an image with Kitsune-ken svg from the target", :points => 1 do
-#     visit "/"
-    
-#     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kitsune-ken_%28%E7%8B%90%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Genyoku_sui_bento_%281774%29.jpg/640px-Kitsune-ken_%28%E7%8B%90%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Genyoku_sui_bento_%281774%29.jpg"
-    
-#     expect(page).to have_tag("img", :with => { :src => image})
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a paragraph with text: 'Kitsune-ken was a...' ", :points => 1 do
-#     visit "/"
-    
-#     text = /Kitsune-ken was a popular Japanese rock–paper–scissors variant./
-    
-#     expect(page).to have_tag("p", :seen => text)
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a div with the kistune-ken image and paragraph with text: 'Kitsune-ken was a...' inside", :points => 5 do
-#     visit "/"
-    
-#     text = /Kitsune-ken was a popular Japanese rock–paper–scissors variant/
-#     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kitsune-ken_%28%E7%8B%90%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Genyoku_sui_bento_%281774%29.jpg/640px-Kitsune-ken_%28%E7%8B%90%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Genyoku_sui_bento_%281774%29.jpg"
-    
-#     expect(page).to have_tag("div") do
-#       with_tag("img", :with => { :src => image } )
-#       with_tag("p", :seen => text )
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has an image with Japanese sansukumi-ken svg from the target", :points => 1 do
-#     visit "/"
-    
-#     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Mushi-ken_%28%E8%99%AB%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Kensarae_sumai_zue_%281809%29.jpg/640px-Mushi-ken_%28%E8%99%AB%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Kensarae_sumai_zue_%281809%29.jpg"
-    
-#     expect(page).to have_tag("img", :with => { :src => image})
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a paragraph with text: 'Mushi-ken, the earliest...' ", :points => 1 do
-#     visit "/"
-    
-#     text = /Mushi-ken, the earliest Japanese sansukumi-ken game (1809). From left to right: slug (namekuji), frog (kawazu) and snake (hebi)./
-    
-#     expect(page).to have_tag("p", :seen => text)
-#   end
-# end
-
-# describe "The home page" do
-#   it "has a div with the Japanese sansukumi-ken image and paragraph with text: 'Mushi-ken, the earliest...' inside", :points => 5 do
-#     visit "/"
-    
-#     text = /Mushi-ken, the earliest Japanese sansukumi-ken game (1809). From left to right: slug (namekuji), frog (kawazu) and snake (hebi)./
-#     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Mushi-ken_%28%E8%99%AB%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Kensarae_sumai_zue_%281809%29.jpg/640px-Mushi-ken_%28%E8%99%AB%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Kensarae_sumai_zue_%281809%29.jpg"
-    
-#     expect(page).to have_tag("div") do
-#       with_tag("img", :with => { :src => image } )
-#       with_tag("p", :seen => text )
-#     end
-#   end
-# end
-
-# describe "The home page" do
-#   it "has all the elements in the right order.", :points => 15 do
-#     visit "/"
-    
-#     text = /Mushi-ken, the earliest Japanese sansukumi-ken game (1809). From left to right: slug (namekuji), frog (kawazu) and snake (hebi)/
-#     image = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Mushi-ken_%28%E8%99%AB%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Kensarae_sumai_zue_%281809%29.jpg/640px-Mushi-ken_%28%E8%99%AB%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Kensarae_sumai_zue_%281809%29.jpg"
-    
-#     expect(page).to have_tag("html > body") do
-
-#       with_tag("div:first-child") {
-#         with_tag("a", :with => { :href => "/rock" }, :seen => "Play Rock")
-#       }
-#       with_tag("div:nth-child(2)") {
-#         with_tag("a", :with => { :href => "/paper" }, :seen => "Play Paper")
-#       }
-#       with_tag("div:nth-child(3)") {
-#         with_tag("a", :with => { :href => "/scissors" }, :seen => "Play Scissors")
-#       }
- 
-#       with_tag("div:nth-child(3) + h1", :seen => "Welcome to Rock-Paper-Scissors!")
-
-#       with_tag("h1 + p:first-of-type", :seen => "From Wikipedia:" ) { 
-#         have_link("Wikipedia", :href => /wikipedia.org/) 
-#         with_tag("a", :with => { :target => "_blank" }, :seen => "Wikipedia")
-#       }
-
-          
-#       rock_paper_scissors = /Rock-paper-scissors (also known as paper, scissors, stone or other variants) is a hand game usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand/
-
-#       with_tag("p:nth-of-type(2)", :seen => rock_paper_scissors, :count => 1 )
-#       these_shapes_are = "These shapes are:"
-
-#       with_tag("p:nth-of-type(3)", :seen => these_shapes_are, :count => 1 )
-      
-
-#       with_tag("p:nth-of-type(3) + ul", :count => 1 ) do
-#         with_tag("li", :count => 3)
-#         with_tag("li", :seen => "\"rock\" (a closed fist)")
-#         with_tag("li", :seen => "\"paper\" (a flat hand)")
-#         with_tag("li", :seen => "\"scissors\" (a fist with the index and middle fingers extended, forming a V)")
-#       end
-      
-      
-#       a_player_who_decides = /A player who decides to play rock will beat another player who has chosen scissors ("rock crushes scissors" or sometimes "blunts scissors"), but will lose to one who has played paper ("paper covers rock"); a play of paper will lose to a play of scissors ("scissors cut[s] paper"). If both players choose the same shape, the game is tied and is usually immediately replayed to break the tie./i
-      
-#       with_tag("p:nth-of-type(4)", :seen => a_player_who_decides)
-
-
-#       with_tag("p:nth-of-type(4) + table", :with => { :border => 1 } ) do
-      
-#         with_tag("tr:first-child") do
-#           with_tag("td:first-child", :with => { :rowspan => 2, :colspan => 2 } )
-#           with_tag("td:nth-child(2)", :with => { :colspan => 3 }, :seen => "and they play..." )
-#         end
-  
-#         with_tag("tr:nth-child(2)") do
-#           with_tag("td:first-child", :text => /Rock/i )
-#           with_tag("td:nth-child(2)", :text => /Paper/i )
-#           with_tag("td:nth-child(3)", :text => /Scissors/i )
-#         end
-  
-#         with_tag("tr:nth-child(3)") do
-#           with_tag("td:first-child", :with => { :rowspan => 3 }, :text => /If we play/i )
-#           with_tag("td:nth-child(2)", :text => /Rock/i)
-#           with_tag("td:nth-child(3)", :text => /We tie/i )
-#           with_tag("td:nth-child(4)", :text => /We lose/i )
-#           with_tag("td:nth-child(5)", :text => /We win/i )
-#         end
+describe "The home page" do
+  it "has a div that containes the heading and paragraph that has a gray background color and the class 'jumbotron'.", { :js => true, :points => 1 } do
+    visit "/"
+    within "html" do
+      within "body" do
         
-#         with_tag("tr:nth-child(4)") do
-#           with_tag("td:first-child", :text => /Paper/i)
-#           with_tag("td:nth-child(2)", :text => /We win/i )
-#           with_tag("td:nth-child(3)", :text => /We tie/i )
-#           with_tag("td:nth-child(4)", :text => /We lose/i )
-#         end
+        p welcome_div = page.find("div.jumbotron", :text => /Welcome/i)
+        rgba_color_value = welcome_div.native.style("background-color")
+        p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
         
-#         with_tag("tr:nth-child(5)") do
-#           with_tag("td:first-child", :text => /Scissors/i )
-#           with_tag("td:nth-child(2)", :text => /We lose/i )
-#           with_tag("td:nth-child(3)", :text => /We win/i )
-#           with_tag("td:nth-child(4)", :text => /We tie/i )
-#         end
-#       end
-      
-      
-#       origination_from_china = /Originating from China and Japan, other names for the game in the English-speaking world include roshambo and other orderings of the three items, with "rock" sometimes being called "stone"/i
-      
-#       with_tag("p:nth-of-type(5)", :seen => origination_from_china)
-      
-#       a_chart_showing = /A chart showing how the three game elements interact/i
-#       rock_paper_scissors_svg = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/627px-Rock-paper-scissors.svg.png"
-      
-#       with_tag("p:nth-of-type(5) + div") do
-#         with_tag("img", :with => { :src => rock_paper_scissors_svg } )
-#         with_tag("p", :seen => a_chart_showing )
-#       end
-      
-          
-#       kistune_ken = /Kitsune-ken was a popular Japanese rock–paper–scissors variant/i
-#       kistune_ken_image = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kitsune-ken_%28%E7%8B%90%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Genyoku_sui_bento_%281774%29.jpg/640px-Kitsune-ken_%28%E7%8B%90%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Genyoku_sui_bento_%281774%29.jpg"
-      
-#       with_tag("div:nth-of-type(5)") do
-#         with_tag("img", :with => { :src => kistune_ken_image } )
-#         with_tag("p", :seen => kistune_ken )
-#       end
+        red_value = color_number_values.first.to_i
+        green_value = color_number_values.second.to_i
+        blue_value = color_number_values.third.to_i
+        
+        # rgb(233, 236, 239);
+        expect(red_value).to eq(233),
+          "Expected the amount of Red(#{red_value}) in the background-color to be equal 233, but wasn't."
+        expect(green_value).to eq(236),
+          "Expected the amount of Green(#{green_value}) in the background-color to be equal 236, but wasn't."
+        expect(blue_value).to eq(239),
+          "Expected the amount of Blue(#{blue_value}) in the background-color to equal 239, but wasn't."
+      end
+    end
+  end
+end
 
-#       mushi_ken = /Mushi-ken, the earliest Japanese sansukumi-ken game (1809). From left to right: slug (namekuji), frog (kawazu) and snake (hebi)/i
-#       mushi_ken_image = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Mushi-ken_%28%E8%99%AB%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Kensarae_sumai_zue_%281809%29.jpg/640px-Mushi-ken_%28%E8%99%AB%E6%8B%B3%29%2C_Japanese_rock-paper-scissors_variant%2C_from_the_Kensarae_sumai_zue_%281809%29.jpg"
-      
-#       with_tag("div:nth-of-type(6)") do
-#         with_tag("img", :with => { :src => mushi_ken_image } )
-#         with_tag("p", :seen => mushi_ken )
-#       end
-#     end
+describe "The home page" do
+  it "has a navbar with the text 'Omnicalc' that has a Bootstrap blue background color.",  {:js => true, :points => 1} do
+    visit "/"
 
-#   end
-# end
+    expect(page).to have_tag("nav", :text => /Omnicalc/i)
+
+    omnicalc_navbar = page.first("nav")
+    
+    p rgba_color_value = omnicalc_navbar.native.style("background-color")
+    color_number_values = rgba_color_value.gsub("rgba(", "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    # TODO should be "rgba(0, 123, 255, 1)"
+    expect(red_value).to be < blue_value
+    expect(green_value).to be < blue_value
+  end
+end
+
+describe "The home page" do
+  it "has a link to Word Count that has a blue border color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Word Count/i)
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    
+    p rgba_color_value = word_count_link.native.style("border-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to be < blue_value
+    expect(green_value).to be < blue_value
+  end
+end
+
+describe "The home page" do
+  it "has a link to Word Count that has a white background color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Word Count/i)
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    
+    p rgba_color_value = word_count_link.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq 0
+    expect(green_value).to eq 0
+    expect(blue_value).to eq 0
+  end
+end
+
+describe "The home page" do
+  it "has a link to Word Count that has a blue background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Word Count/i),
+      "Expected to find an 'a' tag on the page with text that matches the pattern 'Word Count' but didn't find one."
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    
+    p rgba_color_value = word_count_link.hover.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    # TODO add these custom messages to the other CSS tests
+    expect(red_value).to be < blue_value,
+      "Expected the amount of Red(#{red_value}) in the background color to be less than the amount of Blue(#{blue_value}), but wasn't."
+    expect(green_value).to be < blue_value,
+      "Expected the amount of Green#{green_value} in the background color to be less than the amount of Blue(#{blue_value}), but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Word Count that has a blue text color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Word Count/i)
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    
+    p rgba_color_value = word_count_link.native.style("color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to be < blue_value
+    expect(green_value).to be < blue_value
+  end
+end
+
+describe "The home page" do
+  it "has a link to Word Count that is on it's own line.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Word Count/i)
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    
+    display_styles = word_count_link.native.style("display")
+    expect(display_styles).to eq "block"
+  end
+end
+
+describe "The home page" do
+  it "has a link to Word Count that doesn't have any text decoration.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Word Count/i)
+
+    word_count_link = page.find("a", :text => /Word Count/i)
+    # p text_decoration = word_count_link.native.style("text-decoration")
+    # message = "Expected the style of #{word_count_link.text} to have the CSS styles 'none', but got '#{text_decoration}' instead."
+    
+    expect(word_count_link).to match_style("text-decoration" => /none/)
+    # expect(text_decoration).to include "none",
+    #   message
+  end
+end
+
+describe "The home page" do
+  it "has a link to Loan Payment that has a green border color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Loan Payment/i)
+
+    loan_payment_link = page.find("a", :text => /Loan Payment/i)
+    
+    p rgba_color_value = loan_payment_link.native.style("border-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    expect(loan_payment_link).to match_style("border-color" => "rgb(40, 167, 69)")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to be < green_value,
+      "Expected the amount of Red(#{red_value}) in the border-color to be less than the amount of Green(#{green_value}), but wasn't."
+    expect(blue_value).to be < green_value,
+      "Expected the amount of Blue(#{green_value}) in the border-color to be less than the amount of Green(#{green_value}), but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Loan Payment that has a white background color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Loan Payment/i)
+
+    loan_payment_link = page.find("a", :text => /Loan Payment/i)
+    
+    p rgba_color_value = loan_payment_link.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    # expect(loan_payment_link).to match_style("background-color" => "rgb(0, 0, 0)")
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq 0
+    expect(green_value).to eq 0
+    expect(blue_value).to eq 0
+  end
+end
+
+describe "The home page" do
+  it "has a link to Loan Payment that has a green background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Loan Payment/i),
+      "Expected to find an 'a' tag on the page with text that matches the pattern 'Loan Payment' but didn't find one."
+
+    word_count_link = page.find("a", :text => /Loan Payment/i)
+    
+    p rgba_color_value = word_count_link.hover.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    # TODO add these custom messages to the other CSS tests
+    expect(red_value).to be < green_value,
+      "Expected the amount of Red(#{red_value}) in the background color to be less than the amount of Green(#{green_value}), but wasn't."
+    expect(blue_value).to be < green_value,
+      "Expected the amount of Blue(#{green_value}) in the background color to be less than the amount of Green(#{green_value}), but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Loan Payment that has a green text color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Loan Payment/i)
+
+    loan_payment_link = page.find("a", :text => /Loan Payment/i)
+    
+    p rgba_color_value = loan_payment_link.native.style("color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    # TODO add these custom messages to the other CSS tests
+    expect(red_value).to be < green_value,
+      "Expected the amount of Red(#{red_value}) in the background color to be less than the amount of Green(#{green_value}), but wasn't."
+    expect(blue_value).to be < green_value,
+      "Expected the amount of Blue(#{green_value}) in the background color to be less than the amount of Green(#{green_value}), but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Loan Payment that is on it's own line.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Loan Payment/i)
+
+    loan_payment_link = page.find("a", :text => /Loan Payment/i)
+    
+    display_styles = loan_payment_link.native.style("display")
+    expect(display_styles).to eq "block"
+  end
+end
+
+describe "The home page" do
+  it "has a link to Loan Payment that doesn't have any text decoration.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Loan Payment/i)
+
+    loan_payment_link = page.find("a", :text => /Loan Payment/i)
+    # p text_decoration = loan_payment_link.native.style("text-decoration")
+    # message = "Expected the style of #{loan_payment_link.text} to have the CSS styles 'none', but got '#{text_decoration}' instead."
+    
+    expect(loan_payment_link).to match_style("text-decoration" => /none/)
+    # expect(text_decoration).to include "none",
+    #   message
+  end
+end
+
+describe "The home page" do
+  it "has a link to Time Between that has a Bootstrap warning(yellow) border color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Time Between/i)
+
+    time_between_link = page.find("a", :text => /Time Between/i)
+    
+    p rgba_color_value = time_between_link.native.style("border-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    expect(time_between_link).to match_style("border-color" => "rgb(255, 193, 7)")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the border-color to be equal 255, but wasn't."
+    expect(green_value).to eq(193),
+      "Expected the amount of Green(#{green_value}) in the border-color to be equal 193, but wasn't."
+    expect(blue_value).to eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 7, but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Time Between that has a white background color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Time Between/i)
+
+    time_between_link = page.find("a", :text => /Time Between/i)
+    
+    p rgba_color_value = time_between_link.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq 0
+    expect(green_value).to eq 0
+    expect(blue_value).to eq 0
+  end
+end
+
+describe "The home page" do
+  it "has a link to Time Between that has a Bootstrap warning(yellow) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Time Between/i),
+      "Expected to find an 'a' tag on the page with text that matches the pattern 'Time Between' but didn't find one."
+
+    word_count_link = page.find("a", :text => /Time Between/i)
+    
+    p rgba_color_value = word_count_link.hover.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
+    expect(green_value).to eq(193),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 193, but wasn't."
+    expect(blue_value).to eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 7, but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Time Between that has a Bootstrap warning(yellow) text color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Time Between/i)
+
+    time_between_link = page.find("a", :text => /Time Between/i)
+    
+    p rgba_color_value = time_between_link.native.style("color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
+    expect(green_value).to eq(193),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 193, but wasn't."
+    expect(blue_value).to eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 7, but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Time Between that is on it's own line.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Time Between/i)
+
+    time_between_link = page.find("a", :text => /Time Between/i)
+    
+    display_styles = time_between_link.native.style("display")
+    expect(display_styles).to eq "block"
+  end
+end
+
+describe "The home page" do
+  it "has a link to Time Between that doesn't have any text decoration.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Time Between/i)
+
+    time_between_link = page.find("a", :text => /Time Between/i)
+    # p text_decoration = time_between_link.native.style("text-decoration")
+    # message = "Expected the style of #{time_between_link.text} to have the CSS styles 'none', but got '#{text_decoration}' instead."
+    
+    expect(time_between_link).to match_style("text-decoration" => /none/)
+  end
+end
+
+describe "The home page" do
+  it "has a link to Descriptive Statistics that has a Bootstrap info(blue) border color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
+
+    stats_link = page.find("a", :text => /Descriptive Statistics/i)
+    
+    p rgba_color_value = stats_link.native.style("border-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    expect(stats_link).to match_style("border-color" => "rgb(23, 162, 184)")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq(23),
+      "Expected the amount of Red(#{red_value}) in the border-color to be equal 23, but wasn't."
+    expect(green_value).to eq(162),
+      "Expected the amount of Green(#{green_value}) in the border-color to be equal 162, but wasn't."
+    expect(blue_value).to eq(184),
+      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 184, but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Descriptive Statistics that has a white background color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
+
+    stats_link = page.find("a", :text => /Descriptive Statistics/i)
+    
+    p rgba_color_value = stats_link.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq 0
+    expect(green_value).to eq 0
+    expect(blue_value).to eq 0
+  end
+end
+
+describe "The home page" do
+  it "has a link to Descriptive Statistics that has a Bootstrap info(blue) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Descriptive Statistics/i),
+      "Expected to find an 'a' tag on the page with text that matches the pattern 'Descriptive Statistics' but didn't find one."
+
+    word_count_link = page.find("a", :text => /Descriptive Statistics/i)
+    
+    p rgba_color_value = word_count_link.hover.native.style("background-color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq(23),
+      "Expected the amount of Red(#{red_value}) in the background-color to be equal 23, but wasn't."
+    expect(green_value).to eq(162),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 162, but wasn't."
+    expect(blue_value).to eq(184),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Descriptive Statistics that has a Bootstrap info(blue) text color.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
+
+    stats_link = page.find("a", :text => /Descriptive Statistics/i)
+    
+    p rgba_color_value = stats_link.native.style("color")
+    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+
+    red_value = color_number_values.first.to_i
+    green_value = color_number_values.second.to_i
+    blue_value = color_number_values.third.to_i
+
+    expect(red_value).to eq(23),
+      "Expected the amount of Red(#{red_value}) in the background-color to be equal 23, but wasn't."
+    expect(green_value).to eq(162),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 162, but wasn't."
+    expect(blue_value).to eq(184),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 184, but wasn't."
+  end
+end
+
+describe "The home page" do
+  it "has a link to Descriptive Statistics that is on it's own line.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
+
+    stats_link = page.find("a", :text => /Descriptive Statistics/i)
+    
+    display_styles = stats_link.native.style("display")
+    expect(display_styles).to eq "block"
+  end
+end
+
+describe "The home page" do
+  it "has a link to Descriptive Statistics that doesn't have any text decoration.",  {:js => true, :points => 1} do
+    visit "/"
+
+    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
+
+    stats_link = page.find("a", :text => /Descriptive Statistics/i)
+    # p text_decoration = stats_link.native.style("text-decoration")
+    # message = "Expected the style of #{stats_link.text} to have the CSS styles 'none', but got '#{text_decoration}' instead."
+    
+    expect(stats_link).to match_style("text-decoration" => /none/)
+  end
+end
