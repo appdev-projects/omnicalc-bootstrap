@@ -1,20 +1,20 @@
 require "rails_helper"
 
-describe "/word_count/new" do
-  it "has the title 'New word count' ", :points => 1 do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has the title 'New time between' ", :points => 1 do
+    visit "/time_between/new"
     # TODO ignore case custom error
     expect(page).to have_tag("html") do
       with_tag("head") do
-        with_tag("title", :text => /New word count/i)
+        with_tag("title", :text => /New time between/i)
       end
     end
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "links to fontawesome in the head tag", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     # TODO ignore case custom error
     expect(page).to have_tag("html") do
       with_tag("head") do
@@ -28,57 +28,57 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at least one link", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", { :minimum => 1 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at least two links", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", { :minimum => 2 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at least three links", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", { :minimum => 3 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at least four links", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", { :minimum => 4 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at most five links", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", { :count => 5 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to '/' with the text 'Omnicalc'", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Omnicalc/i, :with => { :href => "/" } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to '/word_count/new' with the text 'Word Count'", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", :text => /Word Count/i,
       :with => { :href => "/word_count/new" }
@@ -86,9 +86,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to '/loan_payment/new' with the text 'Loan Payment'", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", :text => /Loan Payment/i,
       :with => { :href => "/loan_payment/new" }
@@ -96,9 +96,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to '/time_between/new' with the text 'Time Between'", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", :text => /Time Between/i,
       :with => { :href => "/time_between/new" }
@@ -106,9 +106,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to '/stats/new' with the text 'Descriptive Statistics'", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i,
       :with => { :href => "/stats/new" }
@@ -116,9 +116,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has all navigation links in a nav tag", :points => 3 do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("html") do
       with_tag("body") do
@@ -136,49 +136,49 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at least one icon", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("i", { :minimum => 1 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at least two icons", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("i", { :minimum => 2 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at least three icons", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("i", { :minimum => 3 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has at least four icons", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
     
     expect(page).to have_tag("i", { :minimum => 4 } )
   end
 end
 
-describe "/word_count/new" do
-  it "has at most five icons", :points => 1 do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has at most seven icons", :points => 1 do
+    visit "/time_between/new"
     
-    expect(page).to have_tag("i", { :count => 5 } )
+    expect(page).to have_tag("i", { :maximum => 7 } )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has all navigation links and icons in the correct order in a nav tag", :points => 3 do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("html") do
       with_tag("body") do
@@ -206,33 +206,33 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
-  it "has text 'New word count calculation'.", :points => 1 do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has text 'New time between calculation'.", :points => 1 do
+    visit "/time_between/new"
 
-    expect(page).to have_content(/New word count calculation/i)
+    expect(page).to have_content(/New time between calculation/i)
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has 1 form tag", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("form", :count => 1 )
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has 1 button tag", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("button", :count => 1 )
   end
 end
 
-describe "/word_count/new" do
-  it "has 1 form with at least 1 label", :points => 1 do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has 1 form with at least 1 label.", :points => 1 do
+    visit "/time_between/new"
 
     expect(page).to have_tag("form") do
       with_tag("label", :minimum => 1)
@@ -240,19 +240,49 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
-  it "has 1 form with a textarea", :points => 1 do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has 1 form with at most 2 labels.", :points => 1 do
+    visit "/time_between/new"
 
     expect(page).to have_tag("form") do
-      with_tag("textarea", :count => 1)
+      with_tag("label", :maximum => 2)
     end
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
+  it "has 1 form with at least 1 input", :points => 1 do
+    visit "/time_between/new"
+
+    expect(page).to have_tag("form") do
+      with_tag("input", :minimum => 1)
+    end
+  end
+end
+
+describe "/time_between/new" do
+  it "has 1 form with at most 2 inputs.", :points => 1 do
+    visit "/time_between/new"
+    
+    expect(page).to have_tag("form") do
+      with_tag("input", :maximum => 2)
+    end
+  end
+end
+
+describe "/time_between/new" do
+  it "has 1 form with at least 1 input with the 'type' equal to 'datetime-local'", :points => 1 do
+    visit "/time_between/new"
+
+    expect(page).to have_tag("form") do
+      with_tag("input", :minimum => 1, :with => { :type => "datetime-local" } )
+    end
+  end
+end
+
+describe "/time_between/new" do
   it "has 1 form with a button", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("form") do
       with_tag("button", :count => 1)
@@ -260,9 +290,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has 1 form with a button with the text, 'Calculate!'", :points => 1 do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("form") do
       with_tag("button", :count => 1, :text => /Calculate/i)
@@ -270,65 +300,44 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
-  it "has 1 form with a textarea that has placeholder 'Enter your text'", :points => 1 do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has 1 form with a label with text 'Starting Time'", :points => 1 do
+    visit "/time_between/new"
 
     expect(page).to have_tag("form") do
-      with_tag("textarea", :with => { :placeholder => "Enter your text" })
+      with_tag("label", :minimum => 1, :text => /Starting Time/i)
     end
   end
 end
 
-describe "/word_count/new" do
-  it "has 1 form with a label with text 'Text'", :points => 1 do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has 1 form with a label with text 'Ending Time'", :points => 1 do
+    visit "/time_between/new"
 
     expect(page).to have_tag("form") do
-      with_tag("label", :minimum => 1, :text => /Text/i)
+      with_tag("label", :minimum => 1, :text => /Ending Time/i)
     end
   end
 end
 
-describe "/word_count/new" do
-  it "has 1 form with a label with text 'Text' and a textarea with placeholder 'Enter your text'", :points => 1 do
-    visit "/word_count/new"
 
-    expect(page).to have_tag("form") do
-      with_tag("label", :count => 1, :text => /Text/i)
-      with_tag("textarea", :with => { :placeholder => "Enter your text" })
-    end
-  end
-end
-
-describe "/word_count/new" do
-  it "has 1 form with a label with text 'Text' and a textarea with placeholder 'Enter your text'.", :points => 1 do
-    visit "/word_count/new"
-
-    expect(page).to have_tag("form") do
-      with_tag("label", :count => 1, :text => /Text/i)
-      with_tag("textarea", :with => { :placeholder => "Enter your text" })
-    end
-  end
-end
-
-describe "/word_count/new" do
-  it "has 1 form tag that submits to '/word_count/results' when you click on the 'Calculate!' button.", :points => 1 do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has 1 form tag that submits to '/time_between/results' when you click on the 'Calculate!' button.", :points => 1 do
+    visit "/time_between/new"
 
     within "form" do
       find("button", :text => /Calculate/i).click
     end
 
-    expect(page.current_path).to match("/word_count/results")
+    expect(page.current_path).to match("/time_between/results")
   end
 end
 
 # CSS
 
-describe "/word_count/new" do
-  it "has a navbar with the text 'Omnicalc' that has a Bootstrap blue background color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a navbar with the text 'Omnicalc' that has a Bootstrap yellow background color.",  {:js => true, :points => 1} do
+    visit "/time_between/new"
 
     expect(page).to have_tag("nav", :text => /Omnicalc/i)
 
@@ -341,15 +350,18 @@ describe "/word_count/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    # TODO should be "rgba(0, 123, 255, 1)"
-    expect(red_value).to be < blue_value
-    expect(green_value).to be < blue_value
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
+    expect(green_value).to eq(193),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 193, but wasn't."
+    expect(blue_value).to eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 7, but wasn't."
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link with text 'Word Count' that has a blue border color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -367,9 +379,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
-  it "has a link with text 'Word Count' that has a blue background color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a link with text 'Word Count' that has a white background color.",  {:js => true, :points => 1} do
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -381,20 +393,25 @@ describe "/word_count/new" do
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
-    # TODO should be "rgba(0, 123, 255, 1)"
-    
-    expect(red_value).to eq(0),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 0, but wasn't."
-    expect(green_value).to eq(123),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 123, but wasn't."
-    expect(blue_value).to eq(255),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 255, but wasn't."
+    alpha_value = color_number_values.last.to_i
+
+    if color_number_values.count > 3 && alpha_value.zero?
+      # Background color is transparent
+      expect(alpha_value).to eq(0)
+    else
+      expect(red_value).to eq(255),
+        "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
+      expect(green_value).to eq(255),
+        "Expected the amount of Green(#{green_value}) in the background-color to be equal 255, but wasn't."
+      expect(blue_value).to eq(255),
+        "Expected the amount of Blue(#{blue_value}) in the background-color to equal 255, but wasn't."
+    end
   end
 end
 
-describe "/word_count/new" do
-  it "has a link to Word Count that has a darker blue background color when a mouse hovers over it.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a link to Word Count that has a blue background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i),
       "Expected to find an 'a' tag on the page with text that matches the pattern 'Word Count' but didn't find one."
@@ -408,20 +425,18 @@ describe "/word_count/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    # TODO add these custom messages to the other CSS tests
-    # rgb(0, 105, 217);
     expect(red_value).to eq(0),
       "Expected the amount of Red(#{red_value}) in the background-color to be equal 0, but wasn't."
-    expect(green_value).to eq(105),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 105, but wasn't."
-    expect(blue_value).to eq(217),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 217, but wasn't."
+    expect(green_value).to eq(123),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 123, but wasn't."
+    expect(blue_value).to eq(255),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 255, but wasn't."
   end
 end
 
-describe "/word_count/new" do
-  it "has a link to Word Count that has a white text color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a link to Word Count that has a blue text color.",  {:js => true, :points => 1} do
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -434,18 +449,18 @@ describe "/word_count/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq(255),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
-    expect(green_value).to eq(255),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 255, but wasn't."
+    expect(red_value).to eq(0),
+      "Expected the amount of Red(#{red_value}) in the background-color to be equal 0, but wasn't."
+    expect(green_value).to eq(123),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 123, but wasn't."
     expect(blue_value).to eq(255),
       "Expected the amount of Blue(#{blue_value}) in the background-color to equal 255, but wasn't."
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Word Count that is on it's own line.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -456,9 +471,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Word Count that doesn't have any text decoration.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Word Count/i)
 
@@ -472,9 +487,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Loan Payment that has a green border color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -496,9 +511,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Loan Payment that has a white background color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -518,9 +533,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Loan Payment that has a green background color when a mouse hovers over it.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i),
       "Expected to find an 'a' tag on the page with text that matches the pattern 'Loan Payment' but didn't find one."
@@ -542,9 +557,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Loan Payment that has a green text color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -570,9 +585,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Loan Payment that is on it's own line.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -583,9 +598,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Loan Payment that doesn't have any text decoration.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Loan Payment/i)
 
@@ -599,9 +614,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Time Between that has a Bootstrap warning(yellow) border color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -625,9 +640,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
-  it "has a link to Time Between that has a white background color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a link to Time Between that has a Bootstrap yellow background color.",  {:js => true, :points => 1} do
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -640,15 +655,19 @@ describe "/word_count/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq 0
-    expect(green_value).to eq 0
-    expect(blue_value).to eq 0
+
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the border-color to be equal 255, but wasn't."
+    expect(green_value).to eq(193),
+      "Expected the amount of Green(#{green_value}) in the border-color to be equal 193, but wasn't."
+    expect(blue_value).to eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 7, but wasn't."
   end
 end
 
-describe "/word_count/new" do
-  it "has a link to Time Between that has a Bootstrap warning(yellow) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a link to Time Between that has a darker yellow background color when a mouse hovers over it.",  {:js => true, :points => 1} do
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i),
       "Expected to find an 'a' tag on the page with text that matches the pattern 'Time Between' but didn't find one."
@@ -661,19 +680,19 @@ describe "/word_count/new" do
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
-
-    expect(red_value).to eq(255),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
-    expect(green_value).to eq(193),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 193, but wasn't."
-    expect(blue_value).to eq(7),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 7, but wasn't."
+    # rgba(224, 168, 0, 1)
+    expect(red_value).to eq(224),
+      "Expected the amount of Red(#{red_value}) in the background-color to be equal 224, but wasn't."
+    expect(green_value).to eq(168),
+      "Expected the amount of Green(#{green_value}) in the background-color to be equal 168, but wasn't."
+    expect(blue_value).to eq(0),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 255, but wasn't."
   end
 end
 
-describe "/word_count/new" do
-  it "has a link to Time Between that has a Bootstrap warning(yellow) text color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a link to Time Between that does NOT has a Bootstrap warning(yellow) text color.",  {:js => true, :points => 1} do
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -686,18 +705,18 @@ describe "/word_count/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq(255),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
-    expect(green_value).to eq(193),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 193, but wasn't."
-    expect(blue_value).to eq(7),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 7, but wasn't."
+    expect(red_value).to_not eq(255),
+      "Expected the amount of Red(#{red_value}) in the background-color to not be equal 255, but was."
+    expect(green_value).to_not eq(193),
+      "Expected the amount of Green(#{green_value}) in the background-color to not be equal 193, but was."
+    expect(blue_value).to_not eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the background-color to not equal 7, but was."
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Time Between that is on it's own line.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -708,9 +727,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Time Between that doesn't have any text decoration.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
 
@@ -722,9 +741,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Descriptive Statistics that has a Bootstrap info(blue) border color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
@@ -748,9 +767,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Descriptive Statistics that has a white background color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
@@ -769,9 +788,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Descriptive Statistics that has a Bootstrap info(blue) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i),
       "Expected to find an 'a' tag on the page with text that matches the pattern 'Descriptive Statistics' but didn't find one."
@@ -794,9 +813,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Descriptive Statistics that has a Bootstrap info(blue) text color.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
@@ -818,9 +837,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Descriptive Statistics that is on it's own line.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
@@ -831,9 +850,9 @@ describe "/word_count/new" do
   end
 end
 
-describe "/word_count/new" do
+describe "/time_between/new" do
   it "has a link to Descriptive Statistics that doesn't have any text decoration.",  {:js => true, :points => 1} do
-    visit "/word_count/new"
+    visit "/time_between/new"
 
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
     # TODO remore these extra preface tests, they already exist elsewhere
@@ -847,9 +866,9 @@ end
 
 # specifics page styles
 
-describe "/word_count/new" do
-  it "has a button with the text 'Calculate!', that has a blue color.", { :js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a button with the text 'Calculate!', that has a Bootstrap yellow color.", { :js => true, :points => 1} do
+    visit "/time_between/new"
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
@@ -860,19 +879,18 @@ describe "/word_count/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-
-    expect(red_value).to eq(0),
-      "Expected the amount of Red(#{red_value}) in the color to be equal 0, but wasn't."
-    expect(green_value).to eq(123),
-      "Expected the amount of Green(#{green_value}) in the color to be equal 123, but wasn't."
-    expect(blue_value).to eq(255),
-      "Expected the amount of Blue(#{blue_value}) in the color to equal 255, but wasn't."
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the border-color to be equal 255, but wasn't."
+    expect(green_value).to eq(193),
+      "Expected the amount of Green(#{green_value}) in the border-color to be equal 193, but wasn't."
+    expect(blue_value).to eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 7, but wasn't."
   end
 end
 
-describe "/word_count/new" do
-  it "has a button with the text 'Calculate!', that has a blue background color.", { :js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a button with the text 'Calculate!', that has a Bootstrap yellow background color.", { :js => true, :points => 1} do
+    visit "/time_between/new"
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
@@ -884,18 +902,18 @@ describe "/word_count/new" do
     blue_value = color_number_values.third.to_i
 
 
-    expect(red_value).to eq(0),
-      "Expected the amount of Red(#{red_value}) in the border-color to be equal 0, but wasn't."
-    expect(green_value).to eq(123),
-      "Expected the amount of Green(#{green_value}) in the border-color to be equal 123, but wasn't."
-    expect(blue_value).to eq(255),
-      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 255, but wasn't."
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the border-color to be equal 255, but wasn't."
+    expect(green_value).to eq(193),
+      "Expected the amount of Green(#{green_value}) in the border-color to be equal 193, but wasn't."
+    expect(blue_value).to eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 7, but wasn't."
   end
 end
 
-describe "/word_count/new" do
-  it "has a button with the text 'Calculate!', that has a blue background color when hovered.", { :js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a button with the text 'Calculate!', that has a Bootstrap yellow background color when hovered.", { :js => true, :points => 1} do
+    visit "/time_between/new"
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
@@ -906,19 +924,18 @@ describe "/word_count/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-
-    expect(red_value).to eq(0),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 0, but wasn't."
-    expect(green_value).to eq(123),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 123, but wasn't."
-    expect(blue_value).to eq(255),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 255, but wasn't."
+    expect(red_value).to eq(255),
+      "Expected the amount of Red(#{red_value}) in the border-color to be equal 255, but wasn't."
+    expect(green_value).to eq(193),
+      "Expected the amount of Green(#{green_value}) in the border-color to be equal 193, but wasn't."
+    expect(blue_value).to eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 7, but wasn't."
   end
 end
 
-describe "/word_count/new" do
-  it "has a button with the text 'Calculate!', that is a white color when hovered.", { :js => true, :points => 1} do
-    visit "/word_count/new"
+describe "/time_between/new" do
+  it "has a button with the text 'Calculate!', that is a not yellow color when hovered.", { :js => true, :points => 1} do
+    visit "/time_between/new"
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
@@ -929,12 +946,11 @@ describe "/word_count/new" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-
-    expect(red_value).to eq(255),
-      "Expected the amount of Red(#{red_value}) in the color to be equal 255, but wasn't."
-    expect(green_value).to eq(255),
-      "Expected the amount of Green(#{green_value}) in the color to be equal 255, but wasn't."
-    expect(blue_value).to eq(255),
-      "Expected the amount of Blue(#{blue_value}) in the color to equal 255, but wasn't."
+    expect(red_value).to_not eq(255),
+      "Expected the amount of Red(#{red_value}) in the border-color to be equal 255, but wasn't."
+    expect(green_value).to_not eq(193),
+      "Expected the amount of Green(#{green_value}) in the border-color to be equal 193, but wasn't."
+    expect(blue_value).to_not eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 7, but wasn't."
   end
 end
