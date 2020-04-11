@@ -45,7 +45,7 @@ gem 'sassc-rails'
 gem 'execjs'
 gem 'therubyracer', platforms: :ruby
 group :development, :test do
-  gem 'awesome_print'
+  gem 'amazing_print'
   gem 'dotenv-rails'
   gem 'grade_runner', github: 'firstdraft/grade_runner'
   gem 'pry-rails'
@@ -61,6 +61,7 @@ group :development do
   gem 'draft_generators', github: 'firstdraft/draft_generators', branch: 'winter-2020'
   gem 'letter_opener'
   gem 'meta_request'
+  gem 'solargraph'
 end
 
 group :test do
