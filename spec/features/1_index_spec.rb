@@ -133,7 +133,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has all navigation links in one single nav tag.", :points => 3 do
+  it "has all navigation links in one single nav tag.", :points => 2 do
     visit "/"
 
     expect(page).to have_tag("nav") {
