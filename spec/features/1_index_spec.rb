@@ -1,12 +1,12 @@
 require "rails_helper"
 
 describe "The home page" do
-  it "has the title 'Omnicalc Home' ", :points => 1 do
+  it "has the title 'Omnicalc Home'.", :points => 1 do
     visit "/"
     # TODO ignore case custom error
     expect(page).to have_tag("html") do
       with_tag("head") do
-        with_tag("title", :text => "Omnicalc Home")
+        with_tag("title", :text => /Omnicalc Home/i)
       end
     end
   end
@@ -77,7 +77,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has a link to '/word_count/new' with the text 'Word Count'", :points => 1 do
+  it "has a link to '/word_count/new' with the text 'Word Count'.", :points => 1 do
     visit "/"
     
     expect(page).to have_tag("a", :text => /Word Count/i,
@@ -87,7 +87,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has a link to '/loan_payment/new' with the text 'Loan Payment'", :points => 1 do
+  it "has a link to '/loan_payment/new' with the text 'Loan Payment'.", :points => 1 do
     visit "/"
     
     expect(page).to have_tag("a", :text => /Loan Payment/i,
@@ -97,7 +97,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has a link to '/time_between/new' with the text 'Time Between'", :points => 1 do
+  it "has a link to '/time_between/new' with the text 'Time Between'.", :points => 1 do
     visit "/"
     
     expect(page).to have_tag("a", :text => /Time Between/i,
@@ -107,7 +107,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has a link to '/stats/new' with the text 'Descriptive Statistics'", :points => 1 do
+  it "has a link to '/stats/new' with the text 'Descriptive Statistics'.", :points => 1 do
     visit "/"
     
     expect(page).to have_tag("a", :text => /Descriptive Statistics/i,
@@ -117,7 +117,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has a navbar with the text 'Omnicalc' in a nav tag", :points => 1 do
+  it "has a navbar with the text 'Omnicalc' in a nav tag.", :points => 1 do
     visit "/"
 
     expect(page).to have_tag("nav", :text => /Omnicalc/i)
@@ -125,7 +125,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has all navigation links in a nav tag", :points => 3 do
+  it "has all navigation links in a nav tag.", :points => 3 do
     visit "/"
 
     expect(page).to have_tag("nav") {
@@ -181,36 +181,6 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has all navigation links and icons in the correct order in a nav tag", :points => 3 do
-    visit "/"
-
-    expect(page).to have_tag("html") do
-      with_tag("body") do
-        with_tag("nav") do
-          with_tag("a:nth-child(1)", :with => { :href => "/word_count/new" }, :text => /Word Count/i) do
-            with_tag("i", :with => { :class => "fas fa-fw fa-book" })
-          end
-          
-          with_tag("a:nth-child(2)", :with => { :href => "/loan_payment/new" }, :text => /Loan Payment/i) do
-            with_tag("i", :with => { :class => "far fa-fw fa-money-bill-alt" })
-          end
-          
-          with_tag("a:nth-child(3)", :with => { :href => "/time_between/new" }, :text => /Time Between/i) do
-            with_tag("i", :with => { :class => "far fa-fw fa-clock" })
-          end
-          
-          with_tag("a:nth-child(4)", :with => { :href => "/stats/new" }, :text => /Descriptive Statistics/i) do
-            with_tag("i", :with => { :class => "far fa-fw fa-chart-bar" })
-          end
-          
-        end
-      end
-
-    end
-  end
-end
-
-describe "The home page" do
   it "has a level 1 heading with the text 'Welcome!'", :points => 1 do
     visit "/"
 
@@ -224,45 +194,18 @@ describe "The home page" do
     
     expect(page).to have_tag("p", :text => /Please select a calculator to begin/i)
   end
-  
 end
 
 describe "The home page" do
   it "has the level 1 heading with text 'Welcome!' and paragraph with the text 'Please select a calculator to begin inside a div.'", :points => 1 do
     visit "/"
-    # rgb(233, 236, 239);
+    
     expect(page).to have_tag("html") do
       with_tag("body") do
         with_tag("div") do
           with_tag("h1", :text => /Welcome/i)
           with_tag("p", :text => /Please select a calculator to begin/i)
         end
-      end
-    end
-  end
-end
-
-describe "The home page" do
-  it "has a div that containes the heading and paragraph that has a gray background color and the class 'jumbotron'.", { :js => true, :points => 1 } do
-    visit "/"
-    within "html" do
-      within "body" do
-        
-        p welcome_div = page.find("div.jumbotron", :text => /Welcome/i)
-        rgba_color_value = welcome_div.native.style("background-color")
-        p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
-        
-        red_value = color_number_values.first.to_i
-        green_value = color_number_values.second.to_i
-        blue_value = color_number_values.third.to_i
-        
-        # rgb(233, 236, 239);
-        expect(red_value).to eq(233),
-          "Expected the amount of Red(#{red_value}) in the background-color to be equal 233, but wasn't."
-        expect(green_value).to eq(236),
-          "Expected the amount of Green(#{green_value}) in the background-color to be equal 236, but wasn't."
-        expect(blue_value).to eq(239),
-          "Expected the amount of Blue(#{blue_value}) in the background-color to equal 239, but wasn't."
       end
     end
   end

@@ -177,36 +177,6 @@ describe "/time_between/new" do
 end
 
 describe "/time_between/new" do
-  it "has all navigation links and icons in the correct order in a nav tag", :points => 3 do
-    visit "/time_between/new"
-
-    expect(page).to have_tag("html") do
-      with_tag("body") do
-        with_tag("nav") do
-          with_tag("a:nth-child(1)", :with => { :href => "/word_count/new" }, :text => /Word Count/i) do
-            with_tag("i", :with => { :class => "fas fa-fw fa-book" })
-          end
-          
-          with_tag("a:nth-child(2)", :with => { :href => "/loan_payment/new" }, :text => /Loan Payment/i) do
-            with_tag("i", :with => { :class => "far fa-fw fa-money-bill-alt" })
-          end
-          
-          with_tag("a:nth-child(3)", :with => { :href => "/time_between/new" }, :text => /Time Between/i) do
-            with_tag("i", :with => { :class => "far fa-fw fa-clock" })
-          end
-          
-          with_tag("a:nth-child(4)", :with => { :href => "/stats/new" }, :text => /Descriptive Statistics/i) do
-            with_tag("i", :with => { :class => "far fa-fw fa-chart-bar" })
-          end
-          
-        end
-      end
-
-    end
-  end
-end
-
-describe "/time_between/new" do
   it "has text 'New time between calculation'.", :points => 1 do
     visit "/time_between/new"
 
