@@ -400,8 +400,8 @@ describe "/word_count/new" do
 
     word_count_link = page.find("a", :text => /Word Count/i)
     
-    p rgba_color_value = word_count_link.native.style("color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = word_count_link.native.style("color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
@@ -424,13 +424,12 @@ describe "/word_count/new" do
 
     calculate_button = page.find("button", :text => /Calculate/i)
     
-    p rgba_color_value = calculate_button.native.style("color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = calculate_button.native.style("color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
-
 
     expect(red_value).to eq(0),
       "Expected the amount of Red(#{red_value}) in the color to be equal 0, but wasn't."

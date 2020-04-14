@@ -3,19 +3,19 @@ require "rails_helper"
 describe "The home page" do
   it "has the title 'Omnicalc Home'.", :points => 1 do
     visit "/"
-    # TODO ignore case custom error
-    expect(page).to have_tag("html") do
+
+    expect(page).to have_tag("html") {
       with_tag("head") do
         with_tag("title", :text => /Omnicalc Home/i)
       end
-    end
+    }
   end
 end
 
 describe "The home page" do
-  it "links to fontawesome in the head tag", :points => 1 do
+  it "links to fontawesome with a 'link' tag inside the head tag.", :points => 1 do
     visit "/"
-    # TODO ignore case custom error
+    
     expect(page).to have_tag("html") do
       with_tag("head") do
         with_tag("link", :with => 
@@ -53,7 +53,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has at least four links", :points => 1 do
+  it "has at least four links.", :points => 1 do
     visit "/"
     
     expect(page).to have_tag("a", { :minimum => 4 } )
@@ -61,7 +61,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has at most five links", :points => 1 do
+  it "has at most five links.", :points => 1 do
     visit "/"
     
     expect(page).to have_tag("a", { :count => 5 } )
@@ -69,7 +69,7 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has a link to '/' with the text 'Omnicalc'", :points => 1 do
+  it "has a link to '/' with the text 'Omnicalc'.", :points => 1 do
     visit "/"
 
     expect(page).to have_tag("a", :text => /Omnicalc/i, :with => { :href => "/" } )
@@ -125,7 +125,15 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has all navigation links in a nav tag.", :points => 3 do
+  it "has a maximum of 2 nav elements.", :points => 1 do
+    visit "/"
+
+    expect(page).to have_tag("nav", :max => 2)
+  end
+end
+
+describe "The home page" do
+  it "has all navigation links in one single nav tag.", :points => 3 do
     visit "/"
 
     expect(page).to have_tag("nav") {
@@ -226,11 +234,10 @@ describe "The home page" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    # TODO should be "rgba(0, 123, 255, 1)"
     expect(red_value).to be < blue_value,
-      "Expected the amount of Red(#{red_value}) in the background-color to be > amount of Blue(#{blue_value}), but wasn't."
+      "Expected the amount of Red(#{red_value}) in the background-color to be < amount of Blue(#{blue_value}), but wasn't."
     expect(green_value).to be < blue_value,
-      "Expected the amount of Green(#{green_value}) in the background-color to be > amount of Blue(#{blue_value}), but wasn't."
+      "Expected the amount of Green(#{green_value}) in the background-color to be < amount of Blue(#{blue_value}), but wasn't."
   end
 end
 
@@ -242,37 +249,37 @@ describe "The home page" do
 
     word_count_link = page.find("a", :text => /Word Count/i)
     
-    p rgba_color_value = word_count_link.native.style("border-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = word_count_link.native.style("border-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to be < blue_value
-    expect(green_value).to be < blue_value
+    expect(red_value).to be < blue_value,
+      "Expected the amount of Red(#{red_value}) in the border-color to be < amount of Blue(#{blue_value}), but wasn't."
+    expect(green_value).to be < blue_value,
+      "Expected the amount of Green(#{green_value}) in the border-color to be < amount of Blue(#{blue_value}), but wasn't."
   end
 end
 
-# TODO remove white bg tests?
 describe "The home page" do
-  it "has a link to Word Count that has a white background color.",  {:js => true, :points => 1} do
+  it "has a link to Word Count that has a NON blue background color.",  {:js => true, :points => 1} do
     visit "/"
-
-    expect(page).to have_tag("a", :text => /Word Count/i)
 
     word_count_link = page.find("a", :text => /Word Count/i)
     
-    p rgba_color_value = word_count_link.native.style("background-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = word_count_link.native.style("background-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq 0
-    expect(green_value).to eq 0
-    expect(blue_value).to eq 0
+    expect(red_value).to be > blue_value,
+      "Expected the amount of Red(#{red_value}) in the background-color to be > amount of Blue(#{blue_value}), but wasn't."
+    expect(green_value).to be > blue_value,
+      "Expected the amount of Green(#{green_value}) in the background-color to be > amount of Blue(#{blue_value}), but wasn't."
   end
 end
 
@@ -280,19 +287,15 @@ describe "The home page" do
   it "has a link to Word Count that has a blue background color when a mouse hovers over it.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Word Count/i),
-      "Expected to find an 'a' tag on the page with text that matches the pattern 'Word Count' but didn't find one."
-
     word_count_link = page.find("a", :text => /Word Count/i)
     
-    p rgba_color_value = word_count_link.hover.native.style("background-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = word_count_link.hover.native.style("background-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    # TODO add these custom messages to the other CSS tests
     expect(red_value).to be < blue_value,
       "Expected the amount of Red(#{red_value}) in the background color to be less than the amount of Blue(#{blue_value}), but wasn't."
     expect(green_value).to be < blue_value,
@@ -304,32 +307,32 @@ describe "The home page" do
   it "has a link to Word Count that has a blue text color.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Word Count/i)
-
     word_count_link = page.find("a", :text => /Word Count/i)
     
-    p rgba_color_value = word_count_link.native.style("color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = word_count_link.native.style("color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to be < blue_value
-    expect(green_value).to be < blue_value
+    expect(red_value).to be < blue_value,
+      "Expected the amount of Red(#{red_value}) in the color to be < amount of Blue(#{blue_value}), but wasn't."
+    expect(green_value).to be < blue_value,
+      "Expected the amount of Green(#{green_value}) in the color to be < amount of Blue(#{blue_value}), but wasn't."
   end
 end
 
 describe "The home page" do
-  it "has a link to Word Count that is on it's own line.",  {:js => true, :points => 1} do
+  it "has a link to Word Count that is a block level element.",  {:js => true, :points => 1} do
     visit "/"
-
-    expect(page).to have_tag("a", :text => /Word Count/i)
 
     word_count_link = page.find("a", :text => /Word Count/i)
     
     display_styles = word_count_link.native.style("display")
-    expect(display_styles).to eq "block"
+
+    expect(display_styles).to match(/block/),
+      "Expected link to be styled as a block level element, with 'display' set to 'block', but was #{display_styles} instead."
   end
 end
 
@@ -337,15 +340,8 @@ describe "The home page" do
   it "has a link to Word Count that doesn't have any text decoration.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Word Count/i)
-
     word_count_link = page.find("a", :text => /Word Count/i)
-    # p text_decoration = word_count_link.native.style("text-decoration")
-    # message = "Expected the style of #{word_count_link.text} to have the CSS styles 'none', but got '#{text_decoration}' instead."
-    
     expect(word_count_link).to match_style("text-decoration" => /none/)
-    # expect(text_decoration).to include "none",
-    #   message
   end
 end
 
@@ -353,14 +349,12 @@ describe "The home page" do
   it "has a link to Loan Payment that has a green border color.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Loan Payment/i)
-
     loan_payment_link = page.find("a", :text => /Loan Payment/i)
     
-    p rgba_color_value = loan_payment_link.native.style("border-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = loan_payment_link.native.style("border-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
-    expect(loan_payment_link).to match_style("border-color" => "rgb(40, 167, 69)")
+    # expect(loan_payment_link).to match_style("border-color" => "rgb(40, 167, 69)")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
@@ -373,35 +367,31 @@ describe "The home page" do
   end
 end
 
-# TODO white bg
 describe "The home page" do
-  it "has a link to Loan Payment that has a white background color.",  {:js => true, :points => 1} do
+  it "has a link to Loan Payment that has a non green background color.",  {:js => true, :points => 1} do
     visit "/"
-
-    expect(page).to have_tag("a", :text => /Loan Payment/i)
 
     loan_payment_link = page.find("a", :text => /Loan Payment/i)
     
-    p rgba_color_value = loan_payment_link.native.style("background-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = loan_payment_link.native.style("background-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     # expect(loan_payment_link).to match_style("background-color" => "rgb(0, 0, 0)")
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq 0
-    expect(green_value).to eq 0
-    expect(blue_value).to eq 0
+    expect(red_value).to be > green_value,
+      "Expected the amount of Red(#{red_value}) in the background-color to be greater than the amount of Green(#{green_value}), but wasn't."
+    expect(blue_value).to be > green_value,
+      "Expected the amount of Blue(#{green_value}) in the background-color to be greater than the amount of Green(#{green_value}), but wasn't."
+
   end
 end
 
 describe "The home page" do
   it "has a link to Loan Payment that has a green background color when a mouse hovers over it.",  {:js => true, :points => 1} do
     visit "/"
-
-    expect(page).to have_tag("a", :text => /Loan Payment/i),
-      "Expected to find an 'a' tag on the page with text that matches the pattern 'Loan Payment' but didn't find one."
 
     word_count_link = page.find("a", :text => /Loan Payment/i)
     
@@ -423,41 +413,32 @@ describe "The home page" do
   it "has a link to Loan Payment that has a green text color.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Loan Payment/i)
-
     loan_payment_link = page.find("a", :text => /Loan Payment/i)
     
-    p rgba_color_value = loan_payment_link.native.style("color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = loan_payment_link.native.style("color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
-
-
-    red_value = color_number_values.first.to_i
-    green_value = color_number_values.second.to_i
-    blue_value = color_number_values.third.to_i
-
-    # TODO add these custom messages to the other CSS tests
+    
     expect(red_value).to be < green_value,
-      "Expected the amount of Red(#{red_value}) in the background color to be less than the amount of Green(#{green_value}), but wasn't."
+      "Expected the amount of Red(#{red_value}) in the color to be less than the amount of Green(#{green_value}), but wasn't."
     expect(blue_value).to be < green_value,
-      "Expected the amount of Blue(#{green_value}) in the background color to be less than the amount of Green(#{green_value}), but wasn't."
+      "Expected the amount of Blue(#{green_value}) in the color to be less than the amount of Green(#{green_value}), but wasn't."
   end
 end
 
-# TODO fix
 describe "The home page" do
-  it "has a link to Loan Payment that is on it's own line.",  {:js => true, :points => 1} do
+  it "has a link to Loan Payment that is a block level element.",  {:js => true, :points => 1} do
     visit "/"
-
-    expect(page).to have_tag("a", :text => /Loan Payment/i)
 
     loan_payment_link = page.find("a", :text => /Loan Payment/i)
     
     display_styles = loan_payment_link.native.style("display")
-    expect(display_styles).to eq "block"
+
+    expect(display_styles).to match(/block/),
+      "Expected link to be styled as a block level element, with 'display' set to 'block', but was #{display_styles} instead."
   end
 end
 
@@ -470,8 +451,7 @@ describe "The home page" do
     text_decoration = loan_payment_link.native.style("text-decoration")
     message = "Expected the style of #{loan_payment_link.text} to have the CSS styles 'none', but got '#{text_decoration}' instead."
     
-    expect(loan_payment_link).to match_style("text-decoration" => /none/),
-      message
+    expect(loan_payment_link).to match_style("text-decoration" => /none/)
   end
 end
 
@@ -479,14 +459,12 @@ describe "The home page" do
   it "has a link to Time Between that has a Bootstrap warning(yellow) border color.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Time Between/i)
-
     time_between_link = page.find("a", :text => /Time Between/i)
     
-    p rgba_color_value = time_between_link.native.style("border-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = time_between_link.native.style("border-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
-    expect(time_between_link).to match_style("border-color" => "rgb(255, 193, 7)")
+    # expect(time_between_link).to match_style("border-color" => "rgb(255, 193, 7)")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
@@ -501,9 +479,8 @@ describe "The home page" do
   end
 end
 
-# TODO white bg test
 describe "The home page" do
-  it "has a link to Time Between that has a white background color.",  {:js => true, :points => 1} do
+  it "has a link to Time Between that has a non Bootstrap yellow(warning) background color.",  {:js => true, :points => 1} do
     visit "/"
 
     expect(page).to have_tag("a", :text => /Time Between/i)
@@ -517,9 +494,12 @@ describe "The home page" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq 0
-    expect(green_value).to eq 0
-    expect(blue_value).to eq 0
+    expect(red_value).to_not eq(255),
+      "Expected the amount of Red(#{red_value}) in the border-color to be equal 255, but wasn't."
+    expect(green_value).to_not eq(193),
+      "Expected the amount of Green(#{green_value}) in the border-color to be equal 193, but wasn't."
+    expect(blue_value).to_not eq(7),
+      "Expected the amount of Blue(#{blue_value}) in the border-color to equal 7, but wasn't."
   end
 end
 
@@ -527,13 +507,10 @@ describe "The home page" do
   it "has a link to Time Between that has a Bootstrap warning(yellow) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Time Between/i),
-      "Expected to find an 'a' tag on the page with text that matches the pattern 'Time Between' but didn't find one."
-
     word_count_link = page.find("a", :text => /Time Between/i)
     
-    p rgba_color_value = word_count_link.hover.native.style("background-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = word_count_link.hover.native.style("background-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
@@ -552,31 +529,27 @@ describe "The home page" do
   it "has a link to Time Between that has a Bootstrap warning(yellow) text color.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Time Between/i)
-
     time_between_link = page.find("a", :text => /Time Between/i)
     
-    p rgba_color_value = time_between_link.native.style("color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = time_between_link.native.style("color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
     expect(red_value).to eq(255),
-      "Expected the amount of Red(#{red_value}) in the background-color to be equal 255, but wasn't."
+      "Expected the amount of Red(#{red_value}) in the color to be equal 255, but wasn't."
     expect(green_value).to eq(193),
-      "Expected the amount of Green(#{green_value}) in the background-color to be equal 193, but wasn't."
+      "Expected the amount of Green(#{green_value}) in the color to be equal 193, but wasn't."
     expect(blue_value).to eq(7),
-      "Expected the amount of Blue(#{blue_value}) in the background-color to equal 7, but wasn't."
+      "Expected the amount of Blue(#{blue_value}) in the color to equal 7, but wasn't."
   end
 end
 
 describe "The home page" do
-  it "has a link to Time Between that is on it's own line.",  {:js => true, :points => 1} do  
+  it "has a link to Time Between that is a block level element.",  {:js => true, :points => 1} do  
     visit "/"
-
-    expect(page).to have_tag("a", :text => /Time Between/i)
 
     time_between_link = page.find("a", :text => /Time Between/i)
     
@@ -590,12 +563,8 @@ describe "The home page" do
   it "has a link to Time Between that doesn't have any text decoration.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Time Between/i)
-
     time_between_link = page.find("a", :text => /Time Between/i)
-    # p text_decoration = time_between_link.native.style("text-decoration")
-    # message = "Expected the style of #{time_between_link.text} to have the CSS styles 'none', but got '#{text_decoration}' instead."
-    
+
     expect(time_between_link).to match_style("text-decoration" => /none/)
   end
 end
@@ -604,14 +573,12 @@ describe "The home page" do
   it "has a link to Descriptive Statistics that has a Bootstrap info(blue) border color.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
-
     stats_link = page.find("a", :text => /Descriptive Statistics/i)
     
-    p rgba_color_value = stats_link.native.style("border-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = stats_link.native.style("border-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
-    expect(stats_link).to match_style("border-color" => "rgb(23, 162, 184)")
+    # expect(stats_link).to match_style("border-color" => "rgb(23, 162, 184)")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
@@ -627,23 +594,22 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has a link to Descriptive Statistics that has a white background color.",  {:js => true, :points => 1} do
+  it "has a link to Descriptive Statistics that has a non blue background color.",  {:js => true, :points => 1} do
     visit "/"
-
-    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
     stats_link = page.find("a", :text => /Descriptive Statistics/i)
     
-    p rgba_color_value = stats_link.native.style("background-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = stats_link.native.style("background-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to eq 0
-    expect(green_value).to eq 0
-    expect(blue_value).to eq 0
+    expect(red_value).to be < blue_value,
+      "Expected the amount of Red(#{red_value}) in the background-color to be < amount of Blue(#{blue_value}), but wasn't."
+    expect(green_value).to be < blue_value,
+      "Expected the amount of Green(#{green_value}) in the background-color to be < amount of Blue(#{blue_value}), but wasn't."
   end
 end
 
@@ -651,13 +617,10 @@ describe "The home page" do
   it "has a link to Descriptive Statistics that has a Bootstrap info(blue) background color when a mouse hovers over it.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Descriptive Statistics/i),
-      "Expected to find an 'a' tag on the page with text that matches the pattern 'Descriptive Statistics' but didn't find one."
-
     word_count_link = page.find("a", :text => /Descriptive Statistics/i)
     
-    p rgba_color_value = word_count_link.hover.native.style("background-color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = word_count_link.hover.native.style("background-color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
@@ -676,12 +639,10 @@ describe "The home page" do
   it "has a link to Descriptive Statistics that has a Bootstrap info(blue) text color.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
-
     stats_link = page.find("a", :text => /Descriptive Statistics/i)
     
-    p rgba_color_value = stats_link.native.style("color")
-    p color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
+    rgba_color_value = stats_link.native.style("color")
+    color_number_values = rgba_color_value.gsub(/rgba?\(/, "").split(",")
 
     red_value = color_number_values.first.to_i
     green_value = color_number_values.second.to_i
@@ -697,15 +658,15 @@ describe "The home page" do
 end
 
 describe "The home page" do
-  it "has a link to Descriptive Statistics that is on it's own line.",  {:js => true, :points => 1} do
+  it "has a link to Descriptive Statistics that is a block level element.",  {:js => true, :points => 1} do
     visit "/"
-
-    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
 
     stats_link = page.find("a", :text => /Descriptive Statistics/i)
     
     display_styles = stats_link.native.style("display")
-    expect(display_styles).to eq "block"
+    
+    expect(display_styles).to match(/block/),
+      "Expected link to be styled as a block level element, with 'display' set to 'block', but was #{display_styles} instead."
   end
 end
 
@@ -713,12 +674,8 @@ describe "The home page" do
   it "has a link to Descriptive Statistics that doesn't have any text decoration.",  {:js => true, :points => 1} do
     visit "/"
 
-    expect(page).to have_tag("a", :text => /Descriptive Statistics/i)
-
     stats_link = page.find("a", :text => /Descriptive Statistics/i)
-    # p text_decoration = stats_link.native.style("text-decoration")
-    # message = "Expected the style of #{stats_link.text} to have the CSS styles 'none', but got '#{text_decoration}' instead."
-    
+
     expect(stats_link).to match_style("text-decoration" => /none/)
   end
 end
