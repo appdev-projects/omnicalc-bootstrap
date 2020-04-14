@@ -276,10 +276,10 @@ describe "The home page" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to be > blue_value,
-      "Expected the amount of Red(#{red_value}) in the background-color to be > amount of Blue(#{blue_value}), but wasn't."
-    expect(green_value).to be > blue_value,
-      "Expected the amount of Green(#{green_value}) in the background-color to be > amount of Blue(#{blue_value}), but wasn't."
+    expect(red_value).to be >= blue_value,
+      "Expected the amount of Red(#{red_value}) in the background-color to be >= amount of Blue(#{blue_value}), but wasn't."
+    expect(green_value).to be >= blue_value,
+      "Expected the amount of Green(#{green_value}) in the background-color to be >= amount of Blue(#{blue_value}), but wasn't."
   end
 end
 
@@ -381,10 +381,10 @@ describe "The home page" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to be > green_value,
-      "Expected the amount of Red(#{red_value}) in the background-color to be greater than the amount of Green(#{green_value}), but wasn't."
-    expect(blue_value).to be > green_value,
-      "Expected the amount of Blue(#{green_value}) in the background-color to be greater than the amount of Green(#{green_value}), but wasn't."
+    expect(red_value).to be >= green_value,
+      "Expected the amount of Red(#{red_value}) in the background-color to be >= the amount of Green(#{green_value}), but wasn't."
+    expect(blue_value).to be >= green_value,
+      "Expected the amount of Blue(#{green_value}) in the background-color to be >= the amount of Green(#{green_value}), but wasn't."
 
   end
 end
@@ -606,10 +606,10 @@ describe "The home page" do
     green_value = color_number_values.second.to_i
     blue_value = color_number_values.third.to_i
 
-    expect(red_value).to be < blue_value,
-      "Expected the amount of Red(#{red_value}) in the background-color to be < amount of Blue(#{blue_value}), but wasn't."
-    expect(green_value).to be < blue_value,
-      "Expected the amount of Green(#{green_value}) in the background-color to be < amount of Blue(#{blue_value}), but wasn't."
+    expect(red_value).to be >= blue_value,
+      "Expected the amount of Red(#{red_value}) in the background-color to be >= amount of Blue(#{blue_value}), but wasn't."
+    expect(green_value).to be >= blue_value,
+      "Expected the amount of Green(#{green_value}) in the background-color to be >= amount of Blue(#{blue_value}), but wasn't."
   end
 end
 

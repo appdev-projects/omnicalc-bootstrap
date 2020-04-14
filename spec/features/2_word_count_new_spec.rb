@@ -143,31 +143,31 @@ describe "/word_count/new" do
 end
 
 describe "/word_count/new" do
-  it "has a form where the 'Text' label has one matching input tag.", { :js => true, :points => 2} do
+  it "has a form where the 'Text' label has one matching textarea tag.", { :js => true, :points => 2} do
     visit "/word_count/new"
 
     first_label = find("label", :text => /Text/i)    
-    all_inputs = all("input")
-
-    all_input_ids = all_inputs.map { |input| input[:id] }
+    all_textareas = all("textarea")
     
-    expect(all_input_ids).to include(first_label[:for]),
-      "Expected the label's for attribute(#{first_label[:for]}) to match 1 of the ids of the inputs(#{all_input_ids}), but didn't."
+    all_textarea_ids = all_textareas.map { |textarea| textarea[:id] }
+    
+    expect(all_textarea_ids).to include(first_label[:for]),
+    "Expected the label's for attribute(#{first_label[:for]}) to match 1 of the ids of the inputs(#{all_textarea_ids}), but didn't."
   end
 end
 
 describe "/word_count/new" do
-  it "has a form where the 'Special Word (optional)' label matches a textarea.", { :js => true, :points => 2} do
+  it "has a form where the 'Special Word (optional)' label matches an input.", { :js => true, :points => 2} do
     visit "/word_count/new"
-
+    
     second_label = find("label", :text => /Special Word/i)
     
-    all_textareas = all("textarea")
-
-    all_textarea_ids = all_textareas.map { |textarea| textarea[:id] }
-   
-    expect(all_textarea_ids).to include(second_label[:for]),
-      "Expected the label's for attribute(#{second_label[:for]}) to match 1 of the ids of the textareas(#{all_textarea_ids}), but didn't."
+    all_inputs = all("input")
+    
+    all_input_ids = all_inputs.map { |input| input[:id] }
+    
+    expect(all_input_ids).to include(second_label[:for]),
+      "Expected the label's for attribute(#{second_label[:for]}) to match 1 of the ids of the textareas(#{all_input_ids}), but didn't."
   end
 end
 # CSS

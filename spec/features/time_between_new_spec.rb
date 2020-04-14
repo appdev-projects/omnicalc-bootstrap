@@ -152,7 +152,7 @@ describe "/time_between/new" do
   it "has 'Starting Time' label with a matching input.", { :points => 2} do
     visit "/time_between/new"
 
-    starting_time = find("label", :text => /Starting Time/i)
+    first_label = find("label", :text => /Starting Time/i)
     all_inputs = all("input")
 
     all_input_ids = all_inputs.map { |input| input[:id] }
@@ -166,7 +166,7 @@ describe "/time_between/new" do
   it "has 'Ending Time' label with a matching input.", { :points => 2} do
     visit "/time_between/new"
 
-    starting_time = find("label", :text => /Ending Time/i)
+    first_label = find("label", :text => /Ending Time/i)
     all_inputs = all("input")
 
     all_input_ids = all_inputs.map { |input| input[:id] }
