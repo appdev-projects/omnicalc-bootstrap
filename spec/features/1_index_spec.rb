@@ -430,6 +430,7 @@ describe "The home page" do
   end
 end
 
+# TODO white bg
 describe "The home page" do
   it "has a link to Loan Payment that has a white background color.",  {:js => true, :points => 1} do
     visit "/"
@@ -503,6 +504,7 @@ describe "The home page" do
   end
 end
 
+# TODO fix
 describe "The home page" do
   it "has a link to Loan Payment that is on it's own line.",  {:js => true, :points => 1} do
     visit "/"
